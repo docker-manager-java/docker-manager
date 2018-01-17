@@ -7,34 +7,13 @@
   <version>1.0-SNAPSHOT</version>
   <name>manger Maven Webapp</name>
   <url>http://maven.apache.org</url>
-    <!--添加版本号-->
-    <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <springmvc.version>4.2.4.RELEASE</springmvc.version>
-    </properties>
-
-
-
-    <dependencies>
-      <dependency>
+  <dependencies>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
-     </dependency>
-
-    <!--添加SpringMVC依赖-->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-webmvc</artifactId>
-          <version>${springmvc.version}</version>
-      </dependency>
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-context</artifactId>
-          <version>${springmvc.version}</version>
-      </dependency>
-
+    </dependency>
   </dependencies>
   <build>
     <finalName>manger</finalName>
