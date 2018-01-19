@@ -1,6 +1,6 @@
-package com.musket.docker.manager.interfaces;
+package com.musket.docker.manager.util.interfaces;
 
-import com.musket.docker.manager.vo.Url;
+import com.musket.docker.manager.util.vo.Url;
 
 public interface Iconnect {
     /**

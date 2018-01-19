@@ -1,4 +1,4 @@
-package com.musket.docker.manager.vo;
+package com.musket.docker.manager.util.vo;
 
 public class LoginUser {
 

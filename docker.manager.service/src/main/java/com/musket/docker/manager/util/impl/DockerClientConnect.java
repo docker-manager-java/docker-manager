@@ -1,6 +1,6 @@
-package com.musket.docker.manager.impl;
+package com.musket.docker.manager.util.impl;
 
-import com.musket.docker.manager.vo.Url;
+import com.musket.docker.manager.util.vo.Url;
 
 public class DockerClientConnect extends AppConnect {
 
