@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.spotify:docker-client:8.9.2">
+    <CLASSES>
+      <root url="jar://D:/apache-maven-3.5.2-bin/repository/com/spotify/docker-client/8.9.2/docker-client-8.9.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/apache-maven-3.5.2-bin/repository/com/spotify/docker-client/8.9.2/docker-client-8.9.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/apache-maven-3.5.2-bin/repository/com/spotify/docker-client/8.9.2/docker-client-8.9.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
