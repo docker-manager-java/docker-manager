@@ -3,9 +3,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.musket.docker.manager</groupId>
   <artifactId>manger</artifactId>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>manger Maven Webapp</name>
+    <modules>
+        <module>docker.manager.site</module>
+        <module>docker.manager.service</module>
+        <module>docker.manager.engine</module>
+    </modules>
+    <name>manger Maven Webapp</name>
   <url>http://maven.apache.org</url>
     <!--添加版本号-->
     <properties>
