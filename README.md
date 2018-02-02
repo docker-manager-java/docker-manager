@@ -14,3 +14,9 @@ started.
 # Project environment
  
 1.JDK 1.8
+
+## Design concept
+
+* docker model
+	
+* pod model
