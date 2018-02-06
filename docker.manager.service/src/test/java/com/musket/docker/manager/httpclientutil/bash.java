@@ -1,4 +1,4 @@
-package com.musket.docker.manager.util.httpclientutil.test;
+package com.musket.docker.manager.httpclientutil;
 
 import com.musket.docker.manager.util.httpclientutil.HttpClientUtil;
 import com.musket.docker.manager.util.httpclientutil.builder.HCB;
@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * Created by Administrator on 2018/2/6.
  */
-public class test {
+public class bash {
     public static void main(String[] args) throws HttpProcessException, FileNotFoundException {
         String url = "http://192.168.46.195:5000/api/v1/create-project";
 
@@ -38,7 +38,7 @@ public class test {
         HCB hcb = HCB.custom()
                 .timeout(1000) //超时
                 .pool(100, 10) //启用连接池，每个路由最大创建10个链接，总连接数限制为100个
-                //.sslpv(SSLs.SSLProtocolVersion.TLSv1_2) 	//设置ssl版本号，默认SSLv3，也可以调用sslpv("TLSv1.2")
+                        //.sslpv(SSLs.SSLProtocolVersion.TLSv1_2) 	//设置ssl版本号，默认SSLv3，也可以调用sslpv("TLSv1.2")
                 .ssl()  	  	//https，支持自定义ssl证书路径和密码，ssl(String keyStorePath, String keyStorepass)
                 .retry(5)		//重试5次
                 ;
@@ -55,11 +55,11 @@ public class test {
         HttpConfig config = HttpConfig.custom()
                 .headers(headers)	//设置headers，不需要时则无需设置
                 .url(url)	//设置请求的url
-                //.map(map)	//设置请求参数，没有则无需设置
+                        //.map(map)	//设置请求参数，没有则无需设置
                 .encoding("utf-8")//设置请求和返回编码，默认就是Charset.defaultCharset()
-                //.client(client)	//如果只是简单使用，无需设置，会自动获取默认的一个client对象
-                //.inenc("utf-8") //设置请求编码，如果请求返回一直，不需要再单独设置
-                //.inenc("utf-8")	//设置返回编码，如果请求返回一直，不需要再单独设置
+                        //.client(client)	//如果只是简单使用，无需设置，会自动获取默认的一个client对象
+                        //.inenc("utf-8") //设置请求编码，如果请求返回一直，不需要再单独设置
+                        //.inenc("utf-8")	//设置返回编码，如果请求返回一直，不需要再单独设置
                 .json("{\"name\":\"wangduo\",\"yml\":\"asdsads\",\"env\":\"asdasdsad\"}")     //json方式请求的话，就不用设置map方法，当然二者可以共用。
                 //.context(HttpCookies.custom().getContext()) //设置cookie，用于完成携带cookie的操作
                 //.out(new FileOutputStream("保存地址"))		//下载的话，设置这个方法,否则不要设置
@@ -68,7 +68,7 @@ public class test {
 
 
         //使用方式：
-       // String result1 = HttpClientUtil.get(config);	//get请求
+        // String result1 = HttpClientUtil.get(config);	//get请求
         String result2 = HttpClientUtil.post(config);	//post请求
         //System.out.println(result1);
         System.out.println(result2);
