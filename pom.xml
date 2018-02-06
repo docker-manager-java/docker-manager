@@ -9,6 +9,7 @@
         <module>docker.manager.site</module>
         <module>docker.manager.service</module>
         <module>docker.manager.engine</module>
+        <module>docker.manager.handle</module>
     </modules>
     <name>manger Maven Webapp</name>
   <url>http://maven.apache.org</url>
