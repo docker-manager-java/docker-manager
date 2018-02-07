@@ -7,7 +7,7 @@ import com.musket.docker.manager.interfaces.PullFromRepertory;
 /**
  * Created by Administrator on 2018/2/7.
  */
-public class PillFromPublicRepertoryImpl extends PullFromRepertory {
+public class PullFromPublicRepertoryImpl extends PullFromRepertory {
     @Override
     public ResultInfo doPullimange(String name, String tag, PullMode pullMode) {
         return null;
