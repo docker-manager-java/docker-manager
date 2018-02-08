@@ -22,9 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="docker-manager" />
+        <module name="docker.manager.engine" />
+        <module name="docker.manager.site" />
+        <module name="handle" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="1.8" />
   </component>
 </project>
 

@@ -24,7 +24,8 @@ import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-import org.apache.log4j.Logger;
+
+
 
 /** 
  * 工具类
@@ -51,7 +52,7 @@ public class Utils {
 	 * 是否开启debug，
 	 */
 	private static boolean debug = false;
-	private static final Logger logger = Logger.getLogger("HttpClient(异步)工具类");
+	//private static final Logger logger = Logger.getLogger("HttpClient(异步)工具类");
 
 	/**
 	 * 检测url是否含有参数，如果有，则把参数加到参数列表中
@@ -231,7 +232,7 @@ public class Utils {
 	 */
 	public static void info(String msg){
 		if(debug){
-			logger.info(msg);
+			//logger.info(msg);
 		}
 	}
 	
@@ -243,7 +244,7 @@ public class Utils {
 	 */
 	public static void infoException(String msg, Throwable t){
 		if(debug){
-			logger.info(msg, t);
+			//logger.info(msg, t);
 		}
 	}
 	
@@ -253,7 +254,7 @@ public class Utils {
 	 * @param msg
 	 */
 	public static void error(String msg){
-		logger.error(msg);
+		//logger.error(msg);
 	}
 	
 	/**
@@ -263,7 +264,7 @@ public class Utils {
 	 * @param t
 	 */
 	public static void errorException(String msg, Throwable t){
-		logger.error(msg, t);
+		//logger.error(msg, t);
 	}
 	
 	/**
@@ -272,7 +273,7 @@ public class Utils {
 	 * @param t
 	 */
 	public static void exception(Throwable t){
-		logger.error(t);
+		//logger.error(t);
 	}
 
 	/**

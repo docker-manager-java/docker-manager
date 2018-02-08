@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/docker-manager.iml" filepath="$PROJECT_DIR$/docker-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/docker.manager.engine/docker.manager.engine.iml" filepath="$PROJECT_DIR$/docker.manager.engine/docker.manager.engine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/docker.manager.service/docker.manager.service.iml" filepath="$PROJECT_DIR$/docker.manager.service/docker.manager.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/docker.manager.site/docker.manager.site.iml" filepath="$PROJECT_DIR$/docker.manager.site/docker.manager.site.iml" />
+      <module fileurl="file://$PROJECT_DIR$/docker.manager.handle/handle.iml" filepath="$PROJECT_DIR$/docker.manager.handle/handle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manger.iml" filepath="$PROJECT_DIR$/manger.iml" />
     </modules>
   </component>
 </project>

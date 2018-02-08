@@ -4,32 +4,37 @@
           xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/applicationContext.xml</param-value>
-        <!-- 默认是/WEB-INF/applicationContext.xml -->
-    </context-param>
 
-    <listener>
-        <listener-class>
-            org.springframework.web.context.ContextLoaderListener
-        </listener-class>
-    </listener>
 
+    <!-- 加载 Spring MVC -->
     <servlet>
-        <servlet-name>SpringMVC</servlet-name>
+        <servlet-name>springmvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/SpringMVC-servlet.xml</param-value>
-            <!-- 默认是/WEB-INF/[servlet名字]-servlet.xml -->
+            <param-value>WEB-INF/conf/applicationContext.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-
     <servlet-mapping>
-        <servlet-name>SpringMVC</servlet-name>
-        <url-pattern>/docker/</url-pattern>
+        <servlet-name>springmvc</servlet-name>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <welcome-file-list>
+        <welcome-file></welcome-file>
+    </welcome-file-list>
 
 </web-app>

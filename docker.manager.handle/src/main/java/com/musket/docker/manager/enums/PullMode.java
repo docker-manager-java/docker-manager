@@ -27,7 +27,7 @@ public enum PullMode {
     DOCKERHUB {
         @Override
         public int getValue() {
-            return 1;
+            return 2;
         }
 
         @Override
@@ -44,7 +44,7 @@ public enum PullMode {
     HARBOR {
         @Override
         public int getValue() {
-            return 1;
+            return 3;
         }
 
         @Override
@@ -57,7 +57,25 @@ public enum PullMode {
             return "HARBOR";
         }
 
+    },
+    REGISTER{
+        @Override
+        public int getValue() {
+            return 4;
+        }
+
+        @Override
+        public String toString() {
+            return "REGISTER";
+        }
+
+        @Override
+        public String getChineseVaule() {
+            return "REGISTER";
+        }
+
     };
+
 
     public abstract int getValue();
 
