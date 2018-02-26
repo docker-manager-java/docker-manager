@@ -8,10 +8,15 @@ import com.spotify.docker.client.DockerClient;
  * Created by Administrator on 2018/2/26.
  */
 public class DokerConnect {
+    private String url;
 
-    public static DockerClient connect(String url) {
-        final DockerClient docker;
-        docker = new DefaultDockerClient(url);
-        return docker;
+
+    public void setUrl(String url) {
+        this.url = url;
     }
+
+    public  DockerClient connect() {
+        return new DefaultDockerClient(url);
+    }
+
 }
