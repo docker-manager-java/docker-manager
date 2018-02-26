@@ -190,14 +190,14 @@
 							<!-- RECENT PURCHASES -->
 							<div class="panel">
 								<div class="panel-heading">
-									<h3 class="panel-title">Recent Purchases</h3>
+									<h3 class="panel-title" id="panel-title">Recent Purchases</h3>
 									<div class="right">
 										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
 										<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
 									</div>
 								</div>
 								<div class="panel-body no-padding">
-									<table class="table table-striped">
+									<table class="table table-striped" id="list-images">
 										<thead>
 											<tr>
 												<th>Order No.</th>
@@ -208,34 +208,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td><a href="#">763648</a></td>
-												<td>Steve</td>
-												<td>$122</td>
-												<td>Oct 21, 2016</td>
-												<td><span class="label label-success">COMPLETED</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763649</a></td>
-												<td>Amber</td>
-												<td>$62</td>
-												<td>Oct 21, 2016</td>
-												<td><span class="label label-warning">PENDING</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763650</a></td>
-												<td>Michael</td>
-												<td>$34</td>
-												<td>Oct 18, 2016</td>
-												<td><span class="label label-danger">FAILED</span></td>
-											</tr>
-											<tr>
-												<td><a href="#">763651</a></td>
-												<td>Roger</td>
-												<td>$186</td>
-												<td>Oct 17, 2016</td>
-												<td><span class="label label-success">SUCCESS</span></td>
-											</tr>
+
 											<tr>
 												<td><a href="#">763652</a></td>
 												<td>Smith</td>
@@ -489,6 +462,8 @@
 	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
+    <script src=" static/dashboard/js/dashboard.js"></script>
+
 	<script>
 	$(function() {
 		var data, options;
@@ -498,7 +473,7 @@
 			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
 			series: [
 				[23, 29, 24, 40, 25, 24, 35],
-				[14, 25, 18, 34, 29, 38, 44],
+				[14, 25, 18, 34, 29, 38, 44]
 			]
 		};
 
@@ -511,7 +486,7 @@
 			axisX: {
 				showGrid: false
 			},
-			lineSmooth: false,
+			lineSmooth: false
 		};
 
 		new Chartist.Line('#headline-chart', data, options);
@@ -522,10 +497,10 @@
 			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 			series: [{
 				name: 'series-real',
-				data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
+				data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900]
 			}, {
 				name: 'series-projection',
-				data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
+				data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800]
 			}]
 		};
 
@@ -540,16 +515,16 @@
 					showArea: true,
 					showPoint: false,
 					showLine: false
-				},
+				}
 			},
 			axisX: {
-				showGrid: false,
+				showGrid: false
 
 			},
 			axisY: {
 				showGrid: false,
 				onlyInteger: true,
-				offset: 0,
+				offset: 0
 			},
 			chartPadding: {
 				left: 20,
@@ -572,7 +547,7 @@
 			height: 300,
 			axisX: {
 				showGrid: false
-			},
+			}
 		};
 
 		new Chartist.Bar('#visits-chart', data, options);
