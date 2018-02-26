@@ -1,14 +1,12 @@
 package com.musket.docker.manager.dockerclient;
 
-import com.musket.docker.manager.dockerclientapi.comtext.DokerConnect;
+import com.musket.docker.manager.dockerclientapi.connect.DokerConnect;
 import com.spotify.docker.client.DockerClient;
 import com.spotify.docker.client.exceptions.DockerException;
 import com.spotify.docker.client.messages.Image;
-import org.junit.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.List;
 
 /**

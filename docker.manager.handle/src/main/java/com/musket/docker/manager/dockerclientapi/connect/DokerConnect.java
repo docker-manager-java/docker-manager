@@ -1,10 +1,7 @@
-package com.musket.docker.manager.dockerclientapi.comtext;
+package com.musket.docker.manager.dockerclientapi.connect;
 
 import com.spotify.docker.client.DefaultDockerClient;
 import com.spotify.docker.client.DockerClient;
-import com.spotify.docker.client.exceptions.DockerException;
-import com.spotify.docker.client.messages.*;
-import java.util.List;
 
 
 /**
