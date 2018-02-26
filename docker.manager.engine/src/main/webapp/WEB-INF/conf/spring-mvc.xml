@@ -5,56 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:annotation-config />
-    <!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                    <property name="supportedMediaTypes">
-                        <list>
-                            <value>text/xml;charset=UTF-8</value>
-                            <value>text/plain;charset=UTF-8</value>
-                        </list>
-                    </property>
-                </bean>
-                <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
-                <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
-                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
-            </list>
-        </property>
-    </bean>
-
-    &lt;!&ndash; ContentNegotiatingViewResolver视图解析器,利用他就可以配置多种返回值 &ndash;&gt;
-    <bean  class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-
-        &lt;!&ndash;设置优先级 &ndash;&gt;
-        <property name="order" value="1"/>
-        &lt;!&ndash;设置为true支持以后缀名的方式识别 &ndash;&gt;
-        <property name="favorPathExtension" value="true"/>
-        &lt;!&ndash;设置为false不采用参数的形式 &ndash;&gt;
-        <property name="favorParameter" value="false"/>
-        &lt;!&ndash;设置为true以忽略对Accept Header的支持  &ndash;&gt;
-        <property name="ignoreAcceptHeader" value="false"/>
-
-        <property name="mediaTypes">
-            <map>
-                <entry key="json" value="application/json" />
-                <entry key="xml" value="application/xml" />
-            </map>
-        </property>
-        &lt;!&ndash; 默认使用MappingJacksonJsonView生成jsonview&ndash;&gt;
-        <property name="defaultViews">
-            <list>
-                <bean  class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
-                    <property  name="extractValueFromSingleKeyModel" value="true" />
-                </bean>
-                <bean  class="org.springframework.web.servlet.view.xml.MarshallingView">
-                    <property name="marshaller">
-                        <bean  class="org.springframework.oxm.xstream.XStreamMarshaller" />
-                    </property>
-                </bean>
-            </list>
-        </property>
-    </bean>-->
 
     <bean id="pullController" class="com.musket.docker.manager.controller.PullController">
         <property name="PullFromDockerHubImpl" ref="pullContext" />
@@ -63,8 +13,10 @@
         <property name="PullFromRegisterImpl" ref="pullContext" />
     </bean>
 
-    <bean id="pullContext" class="com.musket.docker.manager.context.PullContext">
-    </bean>
 
+    <bean id="BashManager" class="com.musket.docker.manager.controller.BashManager">
+        <property name="dockerClientApi" ref="DockerClientApi" />
+        <property name="dokerConnect" ref="dockerClient" />
+    </bean>
 
 </beans>
