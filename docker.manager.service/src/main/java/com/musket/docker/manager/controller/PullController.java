@@ -29,13 +29,6 @@ public class PullController {
 
        private  PullContext PullFromRegisterImpl;
 
-
-    @ResponseBody
-    @RequestMapping(value = "/log", method = RequestMethod.GET)
-  public void yy(){
-      System.out.println("kakak");
-  }
-
     public void setPullFromDockerHubImpl(PullContext pullFromDockerHubImpl) {
         PullFromDockerHubImpl = pullFromDockerHubImpl;
     }
@@ -53,6 +46,7 @@ public class PullController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
     public ResultInfo doPull(HttpServletRequest request,
                              HttpServletResponse response){
         ResultInfo result = new ResultInfo();
@@ -60,8 +54,8 @@ public class PullController {
             String name = request.getParameter("name");
             String tag = request.getParameter("tag");
             PullMode pullMode =PullMode.valueOf(request.getParameter("pullmode")) ;
-        PullFromLocalImpl.toString();
-        /*if (true) {
+
+        if (!"".equals(name)) {
             try {
                     switch (pullMode.getValue()){
                         case 1: result = PullFromLocalImpl.ContextInterface(name,tag);
@@ -69,14 +63,13 @@ public class PullController {
                         case 3: result = PullFromHarborImpl.ContextInterface(name,tag);
                         case 4: result = PullFromRegisterImpl.ContextInterface(name,tag);
                     }
-
                     result.setSuccess(true);
             } catch (Exception e) {
                 result.setMessage("Pull a failure:" + e.getMessage());
             }
         } else {
             result.setMessage("Parameter error" );
-        }*/
+        }
 
 
         return result;
