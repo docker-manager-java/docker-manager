@@ -33,7 +33,6 @@ public class BashManager {
     }
 
     @RequestMapping(value = "/listimages" ,method = RequestMethod.GET)
-    @ResponseBody
     public ResultInfo listImages(HttpServletRequest request,
                              HttpServletResponse response){
         ResultInfo result = new ResultInfo();
