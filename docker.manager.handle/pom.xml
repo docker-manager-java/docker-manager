@@ -24,5 +24,12 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+        <!--docker client api-->
+        <dependency>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-client</artifactId>
+            <version>8.11.1</version>
+        </dependency>
+
     </dependencies>
 </project>
