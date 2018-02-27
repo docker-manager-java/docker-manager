@@ -48,4 +48,11 @@
         <property name="dokerConnect" ref="dockerClient" />
     </bean>
 
+
+    <bean id="ComposeManager" class="com.musket.docker.manager.controller.ComposeManager">
+        <property name="composeUrl" value="${DcokerComposeUi.url}" />
+    </bean>
+
+
+
 </beans>
