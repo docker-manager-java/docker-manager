@@ -47,8 +47,12 @@ public class bash {
 
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("name", "asdsad");
-        map.put("yml", "sdsa");
-        map.put("env", "sdsa");
+        map.put("yml", "version: '2'\n" +
+                "services:\n" +
+                "  hello:\n" +
+                "    image: node:7-alpine\n" +
+                "    command: node -e '${COMMAND}'");
+        map.put("env", "COMMAND=console.log(3*7)");
 
 
         //插件式配置请求参数（网址、请求参数、编码、client）
@@ -60,7 +64,7 @@ public class bash {
                         //.client(client)	//如果只是简单使用，无需设置，会自动获取默认的一个client对象
                         //.inenc("utf-8") //设置请求编码，如果请求返回一直，不需要再单独设置
                         //.inenc("utf-8")	//设置返回编码，如果请求返回一直，不需要再单独设置
-                .json("{\"name\":\"wangduo\",\"yml\":\"asdsads\",\"env\":\"asdasdsad\"}")     //json方式请求的话，就不用设置map方法，当然二者可以共用。
+                .json("{\"name\":\"qq\",\"yml\":\"version: '2'\\nservices:\\n  qq:\\n    image: node:7-alpine\\n    command: node -e '${COMMAND}'\",\"env\":\"COMMAND=console.log(3*7)\"}")     //json方式请求的话，就不用设置map方法，当然二者可以共用。
                 //.context(HttpCookies.custom().getContext()) //设置cookie，用于完成携带cookie的操作
                 //.out(new FileOutputStream("保存地址"))		//下载的话，设置这个方法,否则不要设置
                 //.files(new String[]{"d:/1.txt","d:/2.txt"})	//上传的话，传递文件路径，一般还需map配置，设置服务器保存路径
