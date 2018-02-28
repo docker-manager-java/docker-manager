@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config />
+
+    <!--spring mvc 视图内容协商配置实现 -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <!--设置优先级 -->
+        <property name="order" value="1"/>
+        <!--设置为true支持以后缀名的方式识别 -->
+        <property name="favorPathExtension" value="true"/>
+        <!--设置为false不采用参数的形式 -->
+        <property name="favorParameter" value="false"/>
+        <!--设置为true以忽略对Accept Header的支持  -->
+        <property name="ignoreAcceptHeader" value="false"/>
+
+        <!-- 扩展名至mimeType的映射,即 /user.json => application/json -->
+        <property name="mediaTypes">
+            <map>
+                <entry key="json" value="application/json"/>
+                <entry key="xml" value="application/xml"/>
+            </map>
+        </property>
+
+        <!-- 在没有扩展名时即: "/user/1" 时的默认展现形式 -->
+        <property name="defaultContentType" value="text/html"/>
+
+        <property name="defaultViews">
+            <list>
+                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="pullController" class="com.musket.docker.manager.controller.PullController">
+        <property name="PullFromDockerHubImpl" ref="pullContext" />
+        <property name="PullFromHarborImpl" ref="pullContext" />
+        <property name="PullFromLocalImpl" ref="pullContext" />
+        <property name="PullFromRegisterImpl" ref="pullContext" />
+    </bean>
+
+
+    <bean id="BashManager" class="com.musket.docker.manager.controller.BashManager">
+        <property name="dockerClientApi" ref="DockerClientApi" />
+        <property name="dokerConnect" ref="dockerClient" />
+    </bean>
+
+
+    <bean id="ComposeManager" class="com.musket.docker.manager.controller.ComposeManager">
+        <property name="composeUrl" value="${DcokerComposeUi.url}" />
+    </bean>
+
+
+
+</beans>
