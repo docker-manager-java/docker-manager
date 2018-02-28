@@ -16,7 +16,6 @@ import java.util.Map;
  */
 public class DockerClientApiImpl implements DockerClientApi {
 
-
     @Override
     public List<ImageSearchResult> searchImages(DockerClient dockerClient, String name) {
         List<ImageSearchResult> list = null;
