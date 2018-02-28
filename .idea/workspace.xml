@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc22b600-c4d9-40d4-8dda-09c94c99b46f" name="Default" comment="cc-man &quot;update&quot;&#10;&#10;ad">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker.manager.handle/src/main/java/com/musket/docker/manager/dockerclientapi/connect/impl/DockerClientApiImpl.java" afterPath="$PROJECT_DIR$/docker.manager.handle/src/main/java/com/musket/docker/manager/dockerclientapi/connect/impl/DockerClientApiImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dockermanager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,8 +61,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
+    <ui_properties converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -103,8 +103,8 @@
       <file leaf-file-name="DockerClientApiImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker.manager.handle/src/main/java/com/musket/docker/manager/dockerclientapi/connect/impl/DockerClientApiImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3679115" vertical-offset="0" max-vertical-offset="3059">
-              <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.3416321" vertical-offset="0" max-vertical-offset="3078">
+              <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -982,7 +982,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Git/git-cmd.exe" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="options.lastSelected" value="settings.github" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -1529,7 +1529,10 @@
       <workItem from="1519732272342" duration="259000" />
       <workItem from="1519732746389" duration="951000" />
       <workItem from="1519779212305" duration="967000" />
-      <workItem from="1519780191348" duration="881000" />
+      <workItem from="1519780191348" duration="4093000" />
+      <workItem from="1519784380291" duration="1770000" />
+      <workItem from="1519786618117" duration="90000" />
+      <workItem from="1519786938604" duration="693000" />
     </task>
     <task id="LOCAL-00001" summary="更新">
       <created>1516160748663</created>
@@ -1751,11 +1754,31 @@
       <created>1519780363062</created>
       <updated>1519780363062</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="cc-man &quot;update&quot;&#10;&#10;update">
+      <created>1519783579236</created>
+      <updated>1519783579236</updated>
+    </task>
+    <task id="LOCAL-00057" summary="cc-man &quot;update&quot;&#10;&#10;">
+      <created>1519783723492</created>
+      <updated>1519783723492</updated>
+    </task>
+    <task id="LOCAL-00058" summary="cc-man &quot;update&quot;&#10;&#10;">
+      <created>1519784627456</created>
+      <updated>1519784627456</updated>
+    </task>
+    <task id="LOCAL-00059" summary="cc-man &quot;update&quot;&#10;&#10;">
+      <created>1519786641309</created>
+      <updated>1519786641309</updated>
+    </task>
+    <task id="LOCAL-00060" summary="cc-man &quot;update&quot;&#10;">
+      <created>1519787025587</created>
+      <updated>1519787025587</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125443000" />
+    <option name="totallyTimeSpent" value="131208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1724" height="892" extended-state="1" />
@@ -1793,11 +1816,11 @@
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1816,8 +1839,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22732997" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22732997" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1857,12 +1880,12 @@
     <MESSAGE value="cc-man &quot;update&quot;&#10;&#10;add RequestModel dopost()" />
     <MESSAGE value="cc-man &quot;update&quot;&#10;&#10;add ComposeManager" />
     <MESSAGE value="cc-man &quot;update&quot;&#10;&#10;updata" />
-    <MESSAGE value="cc-man &quot;update&quot;&#10;&#10;update" />
     <MESSAGE value="cc-man &quot;update&quot;&#10;&#10;1223" />
-    <MESSAGE value="cc-man &quot;update&quot;&#10;" />
-    <MESSAGE value="cc-man &quot;update&quot;&#10;&#10;" />
     <MESSAGE value="cc-man &quot;update&quot;&#10;&#10;1" />
-    <option name="LAST_COMMIT_MESSAGE" value="cc-man &quot;update&quot;&#10;&#10;1" />
+    <MESSAGE value="cc-man &quot;update&quot;&#10;&#10;update" />
+    <MESSAGE value="cc-man &quot;update&quot;&#10;&#10;" />
+    <MESSAGE value="cc-man &quot;update&quot;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="cc-man &quot;update&quot;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2242,8 +2265,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker.manager.handle/src/main/java/com/musket/docker/manager/dockerclientapi/connect/impl/DockerClientApiImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3679115" vertical-offset="0" max-vertical-offset="3059">
-          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.3416321" vertical-offset="0" max-vertical-offset="3078">
+          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
           <folding />
         </state>
       </provider>
