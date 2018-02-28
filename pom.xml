@@ -14,7 +14,7 @@
     </modules>
     <name>manger Maven Webapp</name>
   <url>http://maven.apache.org</url>
-    <!--添加版本�?->
+    <!--添加版本-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springmvc.version>4.2.4.RELEASE</springmvc.version>
@@ -47,7 +47,7 @@
     <dependencyManagement>
   <dependencies>
 
-      <!-- https://mvnrepository.com/artifact/com.spotify/docker-client -->
+      <!-- https://mvnrepository.com/artifact/com.spotify/docker-client-->
       <dependency>
           <groupId>com.spotify</groupId>
           <artifactId>docker-client</artifactId>
@@ -154,7 +154,7 @@
             <version>${aspectjweaver.version}</version>
             <scope>compile</scope>
         </dependency>
-        <!-- 引入Spring的测试组�?用于测试基于SpringMVC开发的服务 -->
+        <!-- 引入Spring的测试组�?用于测试基于SpringMVC开发的服务 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
@@ -168,7 +168,7 @@
             <version>${javax.servlet.jsp.version}</version>
             <scope>compile</scope>
         </dependency>
-        <!-- oracle数据库驱�?-->
+        <!-- oracle数据库驱�?-->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
@@ -202,7 +202,7 @@
             <artifactId>commons-httpclient</artifactId>
             <version>${commons-httpclient.version}</version>
         </dependency>
-        <!-- 增加SpringMVC相关的对象转换类�?-->
+        <!-- 增加SpringMVC相关的对象转换类�?-->
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
