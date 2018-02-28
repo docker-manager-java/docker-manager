@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc22b600-c4d9-40d4-8dda-09c94c99b46f" name="Default" comment="cc-man &quot;update&quot;&#10;&#10;ad">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="dc22b600-c4d9-40d4-8dda-09c94c99b46f" name="Default" comment="cc-man &quot;update&quot;&#10;&#10;ad" />
     <ignored path="dockermanager.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -103,8 +101,8 @@
       <file leaf-file-name="DockerClientApiImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker.manager.handle/src/main/java/com/musket/docker/manager/dockerclientapi/connect/impl/DockerClientApiImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3416321" vertical-offset="0" max-vertical-offset="3078">
-              <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.3153527" vertical-offset="0" max-vertical-offset="3078">
+              <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -1532,7 +1530,7 @@
       <workItem from="1519780191348" duration="4093000" />
       <workItem from="1519784380291" duration="1770000" />
       <workItem from="1519786618117" duration="90000" />
-      <workItem from="1519786938604" duration="693000" />
+      <workItem from="1519786938604" duration="990000" />
     </task>
     <task id="LOCAL-00001" summary="更新">
       <created>1516160748663</created>
@@ -1778,7 +1776,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131208000" />
+    <option name="totallyTimeSpent" value="131505000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1724" height="892" extended-state="1" />
@@ -2265,8 +2263,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker.manager.handle/src/main/java/com/musket/docker/manager/dockerclientapi/connect/impl/DockerClientApiImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3416321" vertical-offset="0" max-vertical-offset="3078">
-          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.3153527" vertical-offset="0" max-vertical-offset="3078">
+          <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
           <folding />
         </state>
       </provider>
