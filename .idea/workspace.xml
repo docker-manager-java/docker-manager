@@ -103,8 +103,8 @@
       <file leaf-file-name="DockerClientApiImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker.manager.handle/src/main/java/com/musket/docker/manager/dockerclientapi/connect/impl/DockerClientApiImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26279393" vertical-offset="0" max-vertical-offset="3059">
-              <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.15988779" vertical-offset="76" max-vertical-offset="3078">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -294,10 +294,10 @@
     <option name="vmOptions" value="-Dmaven.multiModuleProjectDirectory=$M2_HOME" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="-4" />
-    <option name="width" value="1724" />
-    <option name="height" value="892" />
+    <option name="x" value="1" />
+    <option name="y" value="1" />
+    <option name="width" value="1714" />
+    <option name="height" value="882" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -382,8 +382,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -982,7 +982,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Git/git-cmd.exe" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="settings.github" />
+    <property name="options.lastSelected" value="application.passwordSafe" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -1537,7 +1537,11 @@
       <workItem from="1519794563269" duration="128000" />
       <workItem from="1519794837752" duration="588000" />
       <workItem from="1519795439403" duration="1193000" />
-      <workItem from="1519796853525" duration="119000" />
+      <workItem from="1519796853525" duration="392000" />
+      <workItem from="1519797256750" duration="511000" />
+      <workItem from="1519798571700" duration="714000" />
+      <workItem from="1519799654396" duration="277000" />
+      <workItem from="1519799993659" duration="101000" />
     </task>
     <task id="LOCAL-00001" summary="更新">
       <created>1516160748663</created>
@@ -1811,14 +1815,38 @@
       <created>1519796884582</created>
       <updated>1519796884582</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="cc-man &quot;update&quot;&#10;&#10;">
+      <created>1519797280913</created>
+      <updated>1519797280913</updated>
+    </task>
+    <task id="LOCAL-00070" summary="cc-man &quot;update&quot;&#10;">
+      <created>1519798630388</created>
+      <updated>1519798630388</updated>
+    </task>
+    <task id="LOCAL-00071" summary="cc-man &quot;update&quot;&#10;&#10;">
+      <created>1519799159611</created>
+      <updated>1519799159611</updated>
+    </task>
+    <task id="LOCAL-00072" summary="cc-man &quot;update&quot;&#10;&#10;">
+      <created>1519799267698</created>
+      <updated>1519799267698</updated>
+    </task>
+    <task id="LOCAL-00073" summary="cc-man &quot;update&quot;&#10;">
+      <created>1519799683575</created>
+      <updated>1519799683575</updated>
+    </task>
+    <task id="LOCAL-00074" summary="cc-man &quot;update&quot;&#10;">
+      <created>1519800022290</created>
+      <updated>1519800022290</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134758000" />
+    <option name="totallyTimeSpent" value="136634000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1724" height="892" extended-state="1" />
+    <frame x="1" y="1" width="1714" height="882" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1842,7 +1870,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23236775" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31476685" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21624851" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21754807" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29404145" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2302,8 +2330,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker.manager.handle/src/main/java/com/musket/docker/manager/dockerclientapi/connect/impl/DockerClientApiImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26279393" vertical-offset="0" max-vertical-offset="3059">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.15988779" vertical-offset="76" max-vertical-offset="3078">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>
