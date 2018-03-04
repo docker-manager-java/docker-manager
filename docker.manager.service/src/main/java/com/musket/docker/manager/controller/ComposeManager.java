@@ -1,6 +1,7 @@
 package com.musket.docker.manager.controller;
 
 import com.musket.docker.manager.util.composeutil.RequestModel;
+import com.musket.docker.manager.util.composeutil.YamlUtil;
 import com.musket.docker.manager.util.httpclientutil.common.HttpHeader;
 import com.musket.docker.manager.vo.ResultInfo;
 import com.spotify.docker.client.DockerClient;
@@ -32,29 +33,29 @@ import java.util.Map;
 @RequestMapping("/compose")
 public class ComposeManager {
     private String composeUrl;
-    public static final String CREATURL ="/api/v1/create-project";
+    public static final String CREATURL = "/api/v1/create-project";
 
 
     public void setComposeUrl(String composeUrl) {
         this.composeUrl = composeUrl;
     }
 
-    @RequestMapping(value = "/creat" ,method = RequestMethod.GET)
+    @RequestMapping(value = "/creatfromyaml", method = RequestMethod.POST)
     public Object listImages(HttpServletRequest request,
-                                 HttpServletResponse response){
+                             HttpServletResponse response, String yaml, String name) {
         ResultInfo result = new ResultInfo();
-        String name = request.getParameter("name");
-        String url = composeUrl+CREATURL;
-        String yml = "{\"name\":\"wangduo\",\"yml\":\"version: '2'\\nservices:\\n  wangduo:\\n    image: node:7-alpine\\n    command: node -e '${COMMAND}'\",\"env\":\"COMMAND=console.log(3*7)\"}";
-        try {
-
-            result.setData(RequestModel.doPost(url,yml));
-
-        } catch (HttpProcessException e) {
-            e.printStackTrace();
+        if("".equals(name) || "".equals(yaml)){
+            result.setSuccess(false);
+            result.setMessage("Nmae or Yaml is not null！");
+        }else {
+            String url = composeUrl + CREATURL;
+            String yml = "{\"name\":\"" + name + "\",\"yml\":" + YamlUtil.yamlFormart(yaml) + ",\"env\":\"\"}";
+            try {
+                result.setData(RequestModel.doPost(url, yml));
+            } catch (HttpProcessException e) {
+                e.printStackTrace();
+            }
         }
-        return  result;
+        return result;
     }
-
-
 }
