@@ -16,7 +16,8 @@ import java.util.Map;
  */
 public class RequestModel {
 
-    public static Object doPost(String url,String jsondata) throws HttpProcessException {
+    public static Object dosent(String type,String url,String jsondata) throws HttpProcessException {
+        String result;
         Header[] headers = HttpHeader.custom()
                 /*.userAgent("javacl")
                 .other("customer", "自定义")*/
@@ -51,9 +52,13 @@ public class RequestModel {
 
 
         //使用方式：
-        // String result1 = HttpClientUtil.get(config);	//get请求
-        String result2 = HttpClientUtil.post(config);    //post请求
-        return result2;
+        if (type.equals("GET")){
+
+           result = HttpClientUtil.get(config);
+        }else {
+            result = HttpClientUtil.post(config);    //post请求
+        }
+        return result;
         //System.out.println(result1);
 
         //HttpClientUtil.down(config);					//下载，需要调用config.out(fileOutputStream对象)
