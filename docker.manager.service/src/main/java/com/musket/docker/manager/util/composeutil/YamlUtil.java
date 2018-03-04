@@ -184,7 +184,31 @@ public class YamlUtil {
         return gs.toJson(loaded);
     }
 
+    /**
+     * 格式化yaml文件
+     * @param yaml
+     * @return
+     */
+    public static String  yamlFormart(String yaml){
+        String newyaml="\""+yaml+"\"";
+        String  n = "\\"+"\\"+'n';
+        newyaml= newyaml.replaceAll("\\n",n);
+        return newyaml;
+    }
 
+    /**
+     * 解析yaml文件返回文件内容字符串
+     * @param url
+     * @return
+     */
+    public static String  getYamlTextFromYaml(String url){
+       Map map = yamlToMap(url);
+        Yaml yaml = new Yaml();
+        StringWriter writer = new StringWriter();
+        yaml.dump(map, writer);
+        String yamls=  writer.toString();
+      return  yamls;
+    }
 
 //  /**
 //   * demo
