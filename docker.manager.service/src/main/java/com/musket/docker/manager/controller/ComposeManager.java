@@ -34,12 +34,21 @@ import java.util.Map;
 public class ComposeManager {
     private String composeUrl;
     public static final String CREATURL = "/api/v1/create-project";
+    public static final String LISTURL="/api/v1/projects";
 
 
     public void setComposeUrl(String composeUrl) {
         this.composeUrl = composeUrl;
     }
 
+    /**
+     * create
+     * @param request
+     * @param response
+     * @param yaml text
+     * @param name
+     * @return
+     */
     @RequestMapping(value = "/creatfromyaml", method = RequestMethod.POST)
     public Object listImages(HttpServletRequest request,
                              HttpServletResponse response, String yaml, String name) {
@@ -51,11 +60,26 @@ public class ComposeManager {
             String url = composeUrl + CREATURL;
             String yml = "{\"name\":\"" + name + "\",\"yml\":" + YamlUtil.yamlFormart(yaml) + ",\"env\":\"\"}";
             try {
-                result.setData(RequestModel.doPost(url, yml));
+                result.setData(RequestModel.dosent("POST",url, yml));
             } catch (HttpProcessException e) {
                 e.printStackTrace();
             }
         }
         return result;
+    }
+
+    @RequestMapping(value = "/listprojects", method = RequestMethod.GET)
+    public Object listImages(HttpServletRequest request,
+                             HttpServletResponse response) {
+        ResultInfo result = new ResultInfo();
+        String url = composeUrl + LISTURL;
+        try {
+            result.setData(RequestModel.dosent("GET", url, ""));
+        } catch (HttpProcessException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+
     }
 }
