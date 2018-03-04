@@ -90,7 +90,7 @@
 				<nav>
 					<ul class="nav">
 						<li><a href="index.html" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="elements.html" class="active"><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
+						<li><a href="container.html" class="active"><i class="lnr lnr-code"></i> <span>Container</span></a></li>
 						<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
 						<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
 						<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
@@ -117,8 +117,24 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">Elements</h3>
+					<h3 class="page-title">Manager</h3>
+                    <button type="button" class="btn btn-primary" id = "btn-create-project">Create<span class="lnr lnr-pencil"></span></button>
 					<div class="row">
+                        <div class="panel-body" id ="project-list">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Explain</th>
+                                    <th>State</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 						<div class="col-md-6">
 							<!-- BUTTONS -->
 							<div class="panel">
@@ -408,6 +424,7 @@
 	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
+    <script src="static/dashboard/js/container.js"></script>
 </body>
 
 </html>
