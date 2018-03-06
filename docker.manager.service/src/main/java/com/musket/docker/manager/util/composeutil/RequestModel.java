@@ -17,7 +17,7 @@ import java.util.Map;
 public class RequestModel {
 
     public static Object dosent(String type,String url,String jsondata) throws HttpProcessException {
-        String result;
+        String result = null;
         Header[] headers = HttpHeader.custom()
                 /*.userAgent("javacl")
                 .other("customer", "自定义")*/
@@ -55,8 +55,10 @@ public class RequestModel {
         if (type.equals("GET")){
 
            result = HttpClientUtil.get(config);
-        }else {
+        }else if (type.equals("POST")) {
             result = HttpClientUtil.post(config);    //post请求
+        }else if (type.equals("DELETE")){
+            result = HttpClientUtil.delete(config);
         }
         return result;
         //System.out.println(result1);
