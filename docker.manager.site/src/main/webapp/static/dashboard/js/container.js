@@ -6,16 +6,20 @@
 $(function(){
     loadlist();
 })
-$("#ntn-primary").click(function(){
-    var  s = $("#wangduo").val();
+$("#creatfromyaml").click(function(){
+    var  yamltext = $("#template_yaml").val();
+    var  name = $("#template_name").val();
   // var p = ReplaceSeperator(s);
     $.ajax({
         url:"/engine/compose/creatfromyaml",
         method: "POST",
         dataType: "text",
-        data: {"yaml":s,"name":"sss"},
+        data: {"yaml":yamltext,"name":name},
         success : function(data){
-            alert(data)
+            $ ("#btn-success").click();
+            $("#close_creat_yaml_div").click();
+            loadlist();
+
         }
     })
 
@@ -46,3 +50,4 @@ function loadlist(){
     })
 
 }
+
