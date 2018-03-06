@@ -147,6 +147,30 @@
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal -->
                     </div>
+
+                    <div class="modal fade" id="myModal_Prompt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Are you sure you want to delete?
+                                    </h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="delete_false">Close
+                                    </button>
+                                    <button type="button" class="btn btn-primary" id="delete_true">
+                                        Commit
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+
+
 					<div class="row">
                         <div class="panel-body" id ="project-list">
                             <table class="table">
@@ -156,6 +180,7 @@
                                     <th>Name</th>
                                     <th>Explain</th>
                                     <th>State</th>
+                                    <th>Operation</th>
                                 </tr>
                                 </thead>
                                 <tbody>
