@@ -30,11 +30,14 @@ import java.util.Map;
  * Created by cc-man on 2018/2/27.
  */
 @Controller
-@RequestMapping("/compose")
+@RequestMapping("/compose/model")
 public class ComposeManager {
     private String composeUrl;
     public static final String CREATURL = "/api/v1/create-project";
     public static final String LISTURL="/api/v1/projects";
+    public static final String DELETE="/api/v1/remove-project";
+
+
 
 
     public void setComposeUrl(String composeUrl) {
@@ -50,7 +53,7 @@ public class ComposeManager {
      * @return
      */
     @RequestMapping(value = "/creatfromyaml", method = RequestMethod.POST)
-    public Object listImages(HttpServletRequest request,
+    public Object creatFromYaml(HttpServletRequest request,
                              HttpServletResponse response, String yaml, String name) {
         ResultInfo result = new ResultInfo();
         if("".equals(name) || "".equals(yaml)){
@@ -68,13 +71,22 @@ public class ComposeManager {
         return result;
     }
 
-    @RequestMapping(value = "/listprojects", method = RequestMethod.GET)
-    public Object listImages(HttpServletRequest request,
+    /**
+     * listprojects
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/listmodels", method = RequestMethod.GET)
+    public Object listModel(HttpServletRequest request,
                              HttpServletResponse response) {
         ResultInfo result = new ResultInfo();
         String url = composeUrl + LISTURL;
         try {
-            result.setData(RequestModel.dosent("GET", url, ""));
+            String r = (String) RequestModel.dosent("GET", url, "");
+            if (!"".equals(r)){
+                result.setData(r);
+            }
         } catch (HttpProcessException e) {
             e.printStackTrace();
         }
@@ -82,4 +94,71 @@ public class ComposeManager {
         return result;
 
     }
+
+    /**
+     * inspectprojects
+     * @param request
+     * @param response
+     * @param name
+     * @return
+     */
+    @RequestMapping(value = "/inspectprojects", method = RequestMethod.GET)
+    public Object inspectModel(HttpServletRequest request,
+                             HttpServletResponse response,String name) {
+        ResultInfo result = new ResultInfo();
+        String url;
+        if (!"".equals(name)){
+            url = composeUrl + LISTURL + "/"+name ;
+        }else {
+            result.setSuccess(false);
+            return result;
+        }
+
+        try {
+            String r = (String) RequestModel.dosent("GET", url, "");
+            if (!"".equals(r)){
+                if (r.startsWith("error")){
+                    result.setSuccess(false);
+                }else {
+                    result.setSuccess(true);
+                }
+            }
+        } catch (HttpProcessException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+
+    }
+
+    @RequestMapping(value = "/deletemodelbyname", method = RequestMethod.GET)
+    public Object deleteModelByName(HttpServletRequest request,
+                                  HttpServletResponse response,String name) {
+        ResultInfo result = new ResultInfo();
+        String url;
+        if (!"".equals(name)){
+            url = composeUrl + DELETE + "/"+name;
+        }else {
+            result.setSuccess(false);
+            return  result;
+        }
+
+        try {
+            String r = (String) RequestModel.dosent("DELETE", url, "");
+            if (!"".equals(r)){
+                if (r.startsWith("error")){
+                    result.setSuccess(false);
+                }else {
+                    result.setSuccess(true);
+                }
+            }
+        } catch (HttpProcessException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+
+    }
+
+
 }
