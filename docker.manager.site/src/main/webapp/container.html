@@ -119,8 +119,13 @@
 			<div class="main-content">
 				<div class="container-fluid">
 					<h3 class="page-title">Manager</h3>
+                    <div class="custom-tabs-line tabs-line-bottom left-aligned">
+                    <ul class="nav" role="tablist">
+                        <li class="active"><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Templates</a></li>
+                        <li><a href="#tab-bottom-left2" role="tab" data-toggle="tab">Projects <span class="badge">7</span></a></li>
+                    </ul>
                     <!--<button type="button" class="btn btn-primary" id = "btn-create-project">Create<span class="lnr lnr-pencil"></span></button>-->
-                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">CreateTemplate<span class="lnr lnr-pencil"></span></button>
+
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -170,8 +175,9 @@
                         </div><!-- /.modal -->
                     </div>
 
-
-					<div class="row">
+                    <div class="tab-content">
+					<div class=" tab-pane fade in active" id ="tab-bottom-left1">
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">CreateTemplate<span class="lnr lnr-pencil"></span></button>
                         <div class="panel-body" id ="project-list">
                             <table class="table">
                                 <thead>
@@ -188,6 +194,47 @@
                             </table>
                         </div>
                     </div>
+
+                        <div class="tab-pane fade" id="tab-bottom-left2">
+                            <div class="table-responsive">
+                            <table class="table project-table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Steve</td>
+                                    <td>Jobs</td>
+                                    <td>@steve</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Simon</td>
+                                    <td>Philips</td>
+                                    <td>@simon</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Jane</td>
+                                    <td>Doe</td>
+                                    <td>@jane</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                       </div>
+                    </div>
+                    </div>
+                    <!-- END BASIC TABLE -->
+
+
+
 						<div class="col-md-6">
 							<!-- BUTTONS -->
 							<div class="panel">
