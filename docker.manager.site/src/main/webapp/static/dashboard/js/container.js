@@ -3,11 +3,13 @@
  */
 var success = "<span class='label label-success'>" +"SUCCESS"+"</span>";
 var danger ="<span class='label label-danger'>"+"DANGER"+"</span>"
-//创建compose项目
+var sign="";//记录要删除的对象
 
 $(function(){
     loadlist();
 })
+
+//创建模板
 $("#creatfromyaml").click(function(){
     var  yamltext = $("#template_yaml").val();
     var  name = $("#template_name").val();
@@ -27,6 +29,7 @@ $("#creatfromyaml").click(function(){
 
 })
 
+//加载模板列表
 function loadlist(){
     $.ajax({
         url:"/engine/compose/model/listmodels",
@@ -38,7 +41,7 @@ function loadlist(){
            var p = obj.projects;
             var tr = "";
             var n =1;
-            var operation_start = "<button type='button' class='btn btn-danger' onclick='deletemodel(this)'><i class='fa fa-trash-o'></i> Danger</button>";//data-toggle='modal' data-target='#myModal_Prompt'
+            var operation_start = "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal_Prompt' onclick='getmodel(this)'><i class='fa fa-trash-o'></i> Danger</button>";//
             var ind;
 
             for(var k in p) {
@@ -56,7 +59,10 @@ function loadlist(){
     })
 
 }
+
+
 var b ;
+//检查模板的健康状况
 function inspectprojects(name){
 
     $.ajax({
@@ -72,18 +78,24 @@ function inspectprojects(name){
     return b;
 
 }
-function deletemodel(element){
-    var name = $(element).parent().parent().children()[1].innerText;
+
+//删除模板
+$("#delete_true").click(function(){
     $.ajax({
         url:"/engine/compose/model/deletemodelbyname",
         method: "GET",
         dataType: "json",
         async:false,
-        data: {"name":name},
+        data: {"name":sign},
         success : function(data){
             $ ("#btn-success").click();
-           loadlist();
+            $("#delete_false").click();
+            loadlist();
         }
     })
+})
+
+function getmodel(element){
+    sign = $(element).parent().parent().children()[1].innerText;
 }
 
