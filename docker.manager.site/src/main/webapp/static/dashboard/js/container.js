@@ -56,7 +56,7 @@ function loadlist(){
                     "</tr>";
             }
             $("#templatesbadge").text(n-1);
-            $("#project-list tbody").html(tr);
+            $("#template-list tbody").html(tr);
 
         }
     })
@@ -112,7 +112,7 @@ function up_project(element){
          data: {"name":name},
          success : function(data){
              $ ("#btn-success").click();
-             
+
             // $("#projectsbadge").click();
 
 
