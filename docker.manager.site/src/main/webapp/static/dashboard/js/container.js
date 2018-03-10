@@ -112,7 +112,10 @@ function up_project(element){
          data: {"name":name},
          success : function(data){
              $ ("#btn-success").click();
-             $("#projectsbadge").click();
+             
+            // $("#projectsbadge").click();
+
+
          }
      })
 
