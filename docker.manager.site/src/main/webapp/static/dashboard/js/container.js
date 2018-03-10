@@ -41,7 +41,8 @@ function loadlist(){
            var p = obj.projects;
             var tr = "";
             var n =1;
-            var operation_start = "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal_Prompt' onclick='getmodel(this)'><i class='fa fa-trash-o'></i> Danger</button>";//
+            var operation_start = "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal_Prompt' onclick='getmodel(this)'> Del</button>";//
+            var up_project = "<button type='button' class='btn btn-primary' onclick='up_project(this)'>up</button>";//
             var ind;
 
             for(var k in p) {
@@ -51,10 +52,12 @@ function loadlist(){
                     "<td>" + k + "</td>" +
                     "<td>" + p[k] + "</td>" +
                     "<td>" + ind  +"</td>" +
-                    "<td>" + operation_start  +"</td>" +
+                    "<td>" + up_project + operation_start+"</td>" +
                     "</tr>";
             }
+            $("#templatesbadge").text(n-1);
             $("#project-list tbody").html(tr);
+
         }
     })
 
@@ -64,7 +67,6 @@ function loadlist(){
 var b ;
 //检查模板的健康状况
 function inspectprojects(name){
-
     $.ajax({
         url:"/engine/compose/model/inspectprojects",
         method: "GET",
@@ -95,7 +97,25 @@ $("#delete_true").click(function(){
     })
 })
 
+//记录选中的模板，便于删除
 function getmodel(element){
     sign = $(element).parent().parent().children()[1].innerText;
 }
+//通过模板来创建/启动一个项目
+function up_project(element){
+   var name =  $(element).parent().parent().children()[1].innerText;
+     $.ajax({
+         url:"/engine/compose/model/startproject",
+         method: "GET",
+         dataType: "json",
+         async:false,
+         data: {"name":name},
+         success : function(data){
+             $ ("#btn-success").click();
+             $("#projectsbadge").click();
+         }
+     })
+
+}
+
 
