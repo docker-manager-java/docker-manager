@@ -7,6 +7,7 @@ var sign="";//记录要删除的对象
 
 $(function(){
     loadlist();
+    projetslist();
 })
 
 //创建模板
@@ -64,11 +65,48 @@ function loadlist(){
 }
 
 
+function projetslist(){
+    $.ajax({
+        url:"/engine/compose/model/listmodels",
+        method: "GET",
+        dataType: "json",
+        success : function(data){
+            var json = data.resultInfo.data;
+            var obj = JSON.parse(json);
+            var p = obj.active;
+            var tr = "";
+            var n =1;
+            var operation_start = "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal_Prompt' onclick=''> Del</button>";//
+            var up_project = "<button type='button' class='btn btn-primary' onclick=''>info</button>";//
+            var a = "<a href='http://192.168.46.195:8080/dfc'>http://192.168.46.195:8080/dfc</a>"
+            var ind;
+
+            for (var k=0;k<p.length-1;k++) {
+                ind =  success
+                if (p.length > 1 && k % 2 == 0) {
+                    tr += "<tr>" +
+                        "<td>" + n++ + "</td>" +
+                        "<td>" + p[k] + "</td>" +
+                        "<td>" + a + "</td>" +
+                        "<td>" + ind + "</td>" +
+                        "<td>" + up_project + operation_start + "</td>" +
+                        "</tr>";
+                }
+            }
+            $("#templatesbadge").text(n-1);
+            $("#project-list tbody").html(tr);
+
+        }
+    })
+
+}
+
+
 var b ;
 //检查模板的健康状况
 function inspectprojects(name){
     $.ajax({
-        url:"/engine/compose/model/inspectprojects",
+        url:"/engine/compose/model/showprojectdetails",
         method: "GET",
         dataType: "json",
         async:false,
@@ -112,7 +150,7 @@ function up_project(element){
          data: {"name":name},
          success : function(data){
              $ ("#btn-success").click();
-
+             projetslist();
             // $("#projectsbadge").click();
 
 
