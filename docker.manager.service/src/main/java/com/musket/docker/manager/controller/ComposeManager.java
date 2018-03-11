@@ -98,14 +98,14 @@ public class ComposeManager {
     }
 
     /**
-     * inspectprojects
+     * showprojectdetails
      *
      * @param request
      * @param response
      * @param name
      * @return
      */
-    @RequestMapping(value = "/inspectprojects", method = RequestMethod.GET)
+    @RequestMapping(value = "/showprojectdetails", method = RequestMethod.GET)
     public Object inspectModel(HttpServletRequest request,
                                HttpServletResponse response, String name) {
         ResultInfo result = new ResultInfo();
@@ -122,8 +122,10 @@ public class ComposeManager {
             if (!"".equals(r)) {
                 if (r.startsWith("error")) {
                     result.setSuccess(false);
+                    result.setData(r);
                 } else {
                     result.setSuccess(true);
+                    result.setData(r);
                 }
             }
         } catch (HttpProcessException e) {
