@@ -77,7 +77,7 @@ function projetslist(){
             var tr = "";
             var n =1;
             var operation_start = "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal_Prompt' onclick=''> Del</button>";//
-            var up_project = "<button type='button' class='btn btn-primary' onclick=''>info</button>";//
+            var up_project = "<button type='button' class='btn btn-primary' onclick='topan(this)'>info</button>";//
             var a = "<a href='http://192.168.46.195:8080/dfc'>http://192.168.46.195:8080/dfc</a>"
             var ind;
 
@@ -93,7 +93,7 @@ function projetslist(){
                         "</tr>";
                 }
             }
-            $("#templatesbadge").text(n-1);
+            $("#projectsbadge").text(n-1);
             $("#project-list tbody").html(tr);
 
         }
@@ -152,11 +152,14 @@ function up_project(element){
              $ ("#btn-success").click();
              projetslist();
             // $("#projectsbadge").click();
-
-
          }
      })
 
+}
+
+function topan(element){
+    var name =  $(element).parent().parent().children()[1].innerText;
+    window.location.href='container-a.html?name='+name;
 }
 
 
