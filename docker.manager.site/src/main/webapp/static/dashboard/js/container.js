@@ -88,7 +88,7 @@ function projetslist(){
                 ind =  runing;//
                 if (p.length > 1 && k % 2 == 0) {
                     tr += "<tr>" +
-                        "<td>" + n++ + "</td>" +后期得改造
+                        "<td>" + n++ + "</td>" +    /*后期得改造*/
                         "<td>" + p[k] + "</td>" +
                         "<td>" + a + "</td>" +
                         "<td>" + ind + "</td>" +
