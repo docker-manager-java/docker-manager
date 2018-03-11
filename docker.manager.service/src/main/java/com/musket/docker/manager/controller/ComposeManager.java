@@ -73,7 +73,7 @@ public class ComposeManager {
     }
 
     /**
-     * listprojects
+     * listmodels
      *
      * @param request
      * @param response
