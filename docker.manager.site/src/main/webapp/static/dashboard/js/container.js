@@ -3,6 +3,9 @@
  */
 var success = "<span class='label label-success'>" +"SUCCESS"+"</span>";
 var danger ="<span class='label label-danger'>"+"DANGER"+"</span>"
+var runing = "<span class='label label-success'>" +"RUN"+"</span>";
+var stop = "<span class='label label-success'>" +"STOP"+"</span>";
+
 var sign="";//记录要删除的对象
 
 $(function(){
@@ -82,10 +85,10 @@ function projetslist(){
             var ind;
 
             for (var k=0;k<p.length-1;k++) {
-                ind =  success
+                ind =  runing;//
                 if (p.length > 1 && k % 2 == 0) {
                     tr += "<tr>" +
-                        "<td>" + n++ + "</td>" +
+                        "<td>" + n++ + "</td>" +后期得改造
                         "<td>" + p[k] + "</td>" +
                         "<td>" + a + "</td>" +
                         "<td>" + ind + "</td>" +
