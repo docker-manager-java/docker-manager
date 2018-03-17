@@ -4,7 +4,8 @@
 var success = "<span class='label label-success'>" +"SUCCESS"+"</span>";
 var danger ="<span class='label label-danger'>"+"DANGER"+"</span>"
 var runing = "<span class='label label-success'>" +"RUN"+"</span>";
-var stop = "<span class='label label-success'>" +"STOP"+"</span>";
+var stop = "<span class='label label-danger'>" +"STOP"+"</span>";
+var warning ="<span class='label label-warning'>WARNING</span>";
 
 var sign="";//记录要删除的对象
 
@@ -42,21 +43,37 @@ function loadlist(){
         success : function(data){
             var json = data.resultInfo.data;
             var obj = JSON.parse(json);
-           var p = obj.projects;
+            var p = obj.projects;
+            var active = data.resultInfo.data;
+            var active_obj = JSON.parse(active);
+            var active_list = active_obj.active;
             var tr = "";
             var n =1;
-            var operation_start = "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal_Prompt' onclick='getmodel(this)'> Del</button>";//
-            var up_project = "<button type='button' class='btn btn-primary' onclick='up_project(this)'>up</button>";//
-            var ind;
+            var operation_del = "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal_Prompt' onclick='getmodel(this)'> Del</button>";//
+            var operation_down = " <button class='btn btn-danger ladda-button' data-style='expand-left' onclick='down_project(this)'><span class='ladda-label'>Down</span></button>"
+            var up_project = "<button class='btn btn-primary ladda-button' data-style='expand-left' onclick='up_project(this)'><span class='ladda-label'>UP</span></button>";//
 
             for(var k in p) {
-                ind = inspectprojects(k)?success:danger
+                var ind = stop;
+                var operation  = up_project ;
+                if (inspectprojects(k)) {
+                    for (var j = 0; j < active_list.length - 1; j++) {
+                        if (active_list.length > 1 && j % 2 == 0 && active_list[j] === k) {
+                            ind = runing;
+                            operation = operation_down;
+                        }
+                    }
+                }else{
+                    ind = warning;
+                    operation="";
+                }
+
                 tr += "<tr>" +
                     "<td>" + n++ + "</td>" +
                     "<td>" + k + "</td>" +
                     "<td>" + p[k] + "</td>" +
                     "<td>" + ind  +"</td>" +
-                    "<td>" + up_project + operation_start+"</td>" +
+                    "<td>" + operation + operation_del+"</td>" +
                     "</tr>";
             }
             $("#templatesbadge").text(n-1);
@@ -79,7 +96,6 @@ function projetslist(){
             var p = obj.active;
             var tr = "";
             var n =1;
-            var operation_start = "<button type='button' class='btn btn-danger' onclick='down_project(this)'> down</button>";//
             var up_project = "<button type='button' class='btn btn-primary' onclick='topan(this)'>info</button>";//
             var a = "<a href='http://192.168.46.195:8080/dfc'>http://192.168.46.195:8080/dfc</a>"
             var ind;
@@ -92,7 +108,7 @@ function projetslist(){
                         "<td>" + p[k] + "</td>" +
                         "<td>" + a + "</td>" +
                         "<td>" + ind + "</td>" +
-                        "<td>" + up_project + operation_start + "</td>" +
+                        "<td>" + up_project +"</td>" +
                         "</tr>";
                 }
             }
@@ -145,14 +161,19 @@ function getmodel(element){
 //通过模板来创建/启动一个项目
 function up_project(element){
    var name =  $(element).parent().parent().children()[1].innerText;
+    $(element).addClass("loading")
+    var gg = Ladda.create( document.querySelector('.loading'));
      $.ajax({
          url:"/engine/compose/model/startproject",
          method: "GET",
          dataType: "json",
-         async:false,
+         async:true,
          data: {"name":name},
+         beforeSend: function(){gg.start()},
          success : function(data){
              $ ("#btn-success").click();
+             $(element).removeClass("loading");
+             loadlist();
              projetslist();
             // $("#projectsbadge").click();
          }
@@ -167,14 +188,19 @@ function topan(element){
 
 function down_project(element){
    var  name =  $(element).parent().parent().children()[1].innerText;
+    $(element).addClass("loading")
+    var gg = Ladda.create( document.querySelector('.loading'));
+
     $.ajax({
         url:"/engine/compose/model/downproject",
         method: "GET",
         dataType: "json",
-        async:false,
+        async:true,
         data: {"name":name},
+        beforeSend: function(){gg.start()},
         success : function(data){
             $ ("#btn-success").click();
+            loadlist();
             projetslist();
             // $("#projectsbadge").click();
         }
