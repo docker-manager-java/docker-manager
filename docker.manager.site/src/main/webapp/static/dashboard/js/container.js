@@ -50,7 +50,7 @@ function loadlist(){
             var tr = "";
             var n =1;
             var operation_del = "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal_Prompt' onclick='getmodel(this)'> Del</button>";//
-            var operation_down = " <button class='btn btn-danger ladda-button' data-style='expand-left' onclick='down_project(this)'><span class='ladda-label'>Down</span></button>"
+            var operation_down = " <button class='btn btn-warning ladda-button' data-style='expand-left' onclick='down_project(this)'><span class='ladda-label'>Down</span></button>"
             var up_project = "<button class='btn btn-primary ladda-button' data-style='expand-left' onclick='up_project(this)'><span class='ladda-label'>UP</span></button>";//
 
             for(var k in p) {
