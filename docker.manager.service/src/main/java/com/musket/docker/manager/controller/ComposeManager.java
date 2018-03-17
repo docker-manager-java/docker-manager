@@ -121,8 +121,7 @@ public class ComposeManager {
             String r = (String) RequestModel.dosent("GET", url, "");
             if (!"".equals(r)) {
                 if (r.startsWith("error")) {
-                    result.setSuccess(false);
-                    result.setData(r);
+                    result.setMessage(r);
                 } else {
                     result.setSuccess(true);
                     result.setData(r);
@@ -152,7 +151,7 @@ public class ComposeManager {
             String r = (String) RequestModel.dosent("DELETE", url, "");
             if (!"".equals(r)) {
                 if (r.startsWith("error")) {
-                    result.setSuccess(false);
+                    result.setMessage(r);
                 } else {
                     result.setSuccess(true);
                 }
