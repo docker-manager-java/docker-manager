@@ -37,7 +37,7 @@ public class ComposeManager {
     public static final String LISTURL = "api/v1/projects";
     public static final String DELETE = "api/v1/remove-project";
     public static final String START = "api/v1/start";
-
+    public static final String DOWN = "api/v1/down";
 
 
     public void setComposeUrl(String composeUrl) {
@@ -182,6 +182,41 @@ public class ComposeManager {
         }
         try {
              r = (String) RequestModel.dosent("POST", url,data);
+            if (!"".equals(r)) {
+                if (r.startsWith("error")) {
+                    result.setSuccess(false);
+                    result.setMessage(r);
+                } else {
+                    result.setSuccess(true);
+                    result.setData(r);
+                }
+            }
+        } catch (HttpProcessException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+
+    }
+
+
+
+    @RequestMapping(value = "/downproject", method = RequestMethod.GET)
+    public Object downProject(HttpServletRequest request,
+                               HttpServletResponse response, String name) {
+        ResultInfo result = new ResultInfo();
+        String url;
+        String data;
+        String r ;
+        if (!"".equals(name)) {
+            url = composeUrl + DOWN;
+            data = "{\"id\":\""+name+"\"}";
+        } else {
+            result.setSuccess(false);
+            return result;
+        }
+        try {
+            r = (String) RequestModel.dosent("POST", url,data);
             if (!"".equals(r)) {
                 if (r.startsWith("error")) {
                     result.setSuccess(false);
