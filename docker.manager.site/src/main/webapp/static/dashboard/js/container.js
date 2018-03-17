@@ -79,7 +79,7 @@ function projetslist(){
             var p = obj.active;
             var tr = "";
             var n =1;
-            var operation_start = "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal_Prompt' onclick=''> Del</button>";//
+            var operation_start = "<button type='button' class='btn btn-danger' onclick='down_project(this)'> down</button>";//
             var up_project = "<button type='button' class='btn btn-primary' onclick='topan(this)'>info</button>";//
             var a = "<a href='http://192.168.46.195:8080/dfc'>http://192.168.46.195:8080/dfc</a>"
             var ind;
@@ -164,5 +164,25 @@ function topan(element){
     var name =  $(element).parent().parent().children()[1].innerText;
     window.location.href='container-a.html?name='+name;
 }
+
+function down_project(element){
+   var  name =  $(element).parent().parent().children()[1].innerText;
+    $.ajax({
+        url:"/engine/compose/model/downproject",
+        method: "GET",
+        dataType: "json",
+        async:false,
+        data: {"name":name},
+        success : function(data){
+            $ ("#btn-success").click();
+            projetslist();
+            // $("#projectsbadge").click();
+        }
+    })
+
+
+
+}
+
 
 
