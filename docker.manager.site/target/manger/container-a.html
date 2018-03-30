@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Tables</title>
+	<title></title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="assets/vendor/toastr/toastr.min.css">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -90,7 +91,7 @@
 				<nav>
 					<ul class="nav">
 						<li><a href="index.html" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="container.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
+						<li><a href="container.html" class="active"><i class="lnr lnr-code"></i> <span>Container</span></a></li>
 						<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
 						<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
 						<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
@@ -104,7 +105,7 @@
 								</ul>
 							</div>
 						</li>
-						<li><a href="tables.html" class="active"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
 						<li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
 						<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
 					</ul>
@@ -117,261 +118,35 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">Tables</h3>
-					<div class="row">
-						<div class="col-md-6">
-							<!-- BASIC TABLE -->
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Basic Table</h3>
-								</div>
-								<div class="panel-body">
-									<table class="table">
-										<thead>
-											<tr>
-												<th>#</th>
-												<th>First Name</th>
-												<th>Last Name</th>
-												<th>Username</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Steve</td>
-												<td>Jobs</td>
-												<td>@steve</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Simon</td>
-												<td>Philips</td>
-												<td>@simon</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>Jane</td>
-												<td>Doe</td>
-												<td>@jane</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<!-- END BASIC TABLE -->
-						</div>
-						<div class="col-md-6">
-							<!-- TABLE NO PADDING -->
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Table Inside No Padding</h3>
-								</div>
-								<div class="panel-body no-padding">
-									<table class="table">
-										<thead>
-											<tr>
-												<th>#</th>
-												<th>First Name</th>
-												<th>Last Name</th>
-												<th>Username</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Steve</td>
-												<td>Jobs</td>
-												<td>@steve</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Simon</td>
-												<td>Philips</td>
-												<td>@simon</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>Jane</td>
-												<td>Doe</td>
-												<td>@jane</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<!-- END TABLE NO PADDING -->
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<!-- TABLE STRIPED -->
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Striped Row</h3>
-								</div>
-								<div class="panel-body">
-									<table class="table table-striped">
-										<thead>
-											<tr>
-												<th>#</th>
-												<th>First Name</th>
-												<th>Last Name</th>
-												<th>Username</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Steve</td>
-												<td>Jobs</td>
-												<td>@steve</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Simon</td>
-												<td>Philips</td>
-												<td>@simon</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>Jane</td>
-												<td>Doe</td>
-												<td>@jane</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<!-- END TABLE STRIPED -->
-						</div>
-						<div class="col-md-6">
-							<!-- TABLE HOVER -->
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Hover Row</h3>
-								</div>
-								<div class="panel-body">
-									<table class="table table-hover">
-										<thead>
-											<tr>
-												<th>#</th>
-												<th>First Name</th>
-												<th>Last Name</th>
-												<th>Username</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Steve</td>
-												<td>Jobs</td>
-												<td>@steve</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Simon</td>
-												<td>Philips</td>
-												<td>@simon</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>Jane</td>
-												<td>Doe</td>
-												<td>@jane</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<!-- END TABLE HOVER -->
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<!-- BORDERED TABLE -->
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Bordered Table</h3>
-								</div>
-								<div class="panel-body">
-									<table class="table table-bordered">
-										<thead>
-											<tr>
-												<th>#</th>
-												<th>First Name</th>
-												<th>Last Name</th>
-												<th>Username</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Steve</td>
-												<td>Jobs</td>
-												<td>@steve</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Simon</td>
-												<td>Philips</td>
-												<td>@simon</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>Jane</td>
-												<td>Doe</td>
-												<td>@jane</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<!-- END BORDERED TABLE -->
-						</div>
-						<div class="col-md-6">
-							<!-- CONDENSED TABLE -->
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Condensed Table</h3>
-								</div>
-								<div class="panel-body">
-									<table class="table table-condensed">
-										<thead>
-											<tr>
-												<th>#</th>
-												<th>First Name</th>
-												<th>Last Name</th>
-												<th>Username</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Steve</td>
-												<td>Jobs</td>
-												<td>@steve</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Simon</td>
-												<td>Philips</td>
-												<td>@simon</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>Jane</td>
-												<td>Doe</td>
-												<td>@jane</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<!-- END CONDENSED TABLE -->
+					<h3 class="page-title"><span id = "container-a-name"></span></h3>
+                    <div class="custom-tabs-line tabs-line-bottom left-aligned">
+
+                        <!-- BASIC TABLE -->
+                        <div class="panel">
+                            <div class="panel-body" id="containerlist">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>URI</th>
+                                        <th>State</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END BASIC TABLE -->
 						</div>
 					</div>
 				</div>
 			</div>
+        <div id="toastr-demo" style="width: 0px;height:0px"    class="panel">
+            <button type="button" style="width: 0px;height:0px;visibility:hidden" class="btn btn-success btn-toastr" id="btn-success" data-context="success" data-message="This is success info" data-position="top-right">Success Info</button>
+        </div>
 			<!-- END MAIN CONTENT -->
 		</div>
 		<!-- END MAIN -->
@@ -387,7 +162,9 @@
 	<script src="assets/vendor/jquery/jquery.min.js"></script>
 	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/scripts/klorofil-common.js"></script>
+    <script src="assets/vendor/toastr/toastr.min.js"></script>
+    <script src="static/dashboard/js/container-a.js"></script>
+    <script src="assets/scripts/klorofil-common.js"></script>
 </body>
 
 </html>

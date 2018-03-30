@@ -1,0 +1,124 @@
+networks:
+  mysgs:
+    driver: bridge
+    driver_opts: {com.docker.network.bridge.host_binding_ipv4: 192.168.46.156}
+services:
+  mongodb-sgs:
+    environment: [SERVICE_27017_NAME=sgs-mongodb-sgs]
+    image: supermap/sgs-mongodb:3.0
+    mem_limit: 256m
+    networks: [mysgs]
+    ports: ['27017:27017']
+    volumes: ['mongo-sgs-data:/data/db']
+  mongodb-map:
+    environment: [SERVICE_27017_NAME=sgs-mongodb-map]
+    image: supermap/sgs-mongodb:3.0
+    mem_limit: 256m
+    networks: [mysgs]
+    ports: ['27018:27017']
+    volumes: ['mongo-map-data:/data/db']
+  mongodb-geocoding:
+    environment: [SERVICE_27017_NAME=sgs-mongodb-geocoding]
+    image: supermap/sgs-mongodb:3.0
+    mem_limit: 256m
+    networks: [mysgs]
+    ports: ['27019:27017']
+    volumes: ['mongo-geocoding-data:/data/db']
+  redis:
+    environment: [SERVICE_6379_NAME=sgs-redis]
+    image: supermap/sgs-redis:3.0.3
+    mem_limit: 50m
+    networks: [mysgs]
+    ports: ['6379:6379']
+  oracle:
+    environment: [SERVICE_1521_NAME=sgs-oracle]
+    image: supermap/sgs-oracle:11g
+    mem_limit: 2048m
+    networks: [mysgs]
+    ports: ['1521:1521']
+    volumes: ['oracle-data:/u01/app/oracle']
+  activemq:
+    environment: [SERVICE_8161_NAME=sgs-activemq, SERVICE_61616_NAME=sgs-activemq]
+    image: supermap/sgs-activemq:5.6.0
+    mem_limit: 512m
+    networks: [mysgs]
+    ports: ['8161:8161', '61616:61616']
+  analysis:
+    environment: [SERVICE_8090_NAME=sgs-iserver-service-name-iserver]
+    hostname: cc
+    image: supermap/sgs-iserver:8.1.1
+    links: ['oracle:oracleip']
+    mem_limit: 1536m
+    networks: [mysgs]
+    ports: ['8090']
+    volumes: ['iserver-log-data:/opt/tomcat/logs', 'idesktop-iserver-data:/opt/Supermap/data']
+  geoesb:
+    environment: [SERVICE_8081_NAME=sgs-mule-service-name-mule]
+    image: supermap/sgs-mule:3.4.0
+    links: ['redis:redisip', 'activemq:mqip', 'mongodb-sgs:mongodbip', 'oracle:oracleip']
+    mem_limit: 1024m
+    networks: [mysgs]
+    ports: ['8081']
+  portal:
+    environment: [PUBLIC_IP=192.168.46.156, SERVICE_8080_NAME=sgs-sgs-service-name-sgs]
+    hostname: cc
+    image: supermap/sgs:9.0
+    links: ['redis:redisip', 'activemq:mqip', 'mongodb-sgs:mongodbip', 'oracle:oracleip',
+      'geoesb:muleip']
+    mem_limit: 3062m
+    networks: [mysgs]
+    ports: ['8080']
+    volumes: ['sgs-log-data:/opt/tomcat/logs']
+  idesktop:
+    hostname: cc
+    image: supermap/idesktop:9D
+    links: ['oracle:oracleip']
+    networks: [mysgs]
+    ports: ['5901:5901', '6901:6901']
+    volumes: ['idesktop-iserver-data:/opt/Supermap/data']
+  map:
+    environment: [SERVICE_8080_NAME=sgs-dfc-service-name-dfc-map]
+    image: supermap/sgs-dfc:9.0
+    links: ['mongodb-map:mongodbip']
+    networks: [mysgs]
+    ports: ['8080']
+  geocoding:
+    environment: [SERVICE_8080_NAME=sgs-dfc-service-name-dfc-geocoding]
+    image: supermap/sgs-dfc:9.0
+    links: ['mongodb-geocoding:mongodbip']
+    networks: [mysgs]
+    ports: ['8080']
+  consul:
+    command: [agent, -ui, -dev, -server, -bind=0.0.0.0, -bootstrap, -client=0.0.0.0]
+    environment: [SERVICE_NAME=sgs-consul, SERVICE_8500_NAME=sgs-consul]
+    hostname: cc
+    image: consul:latest
+    mem_limit: 50m
+    networks: [mysgs]
+    ports: ['8500']
+    restart: unless-stopped
+  registrator:
+    command: [-ip=192.168.46.156, -resync, '60', -retry-attempts, '-1', 'consul://consul:8500']
+    environment: [SERVICE_NAME=sgs-registrator]
+    hostname: cc
+    image: gliderlabs/registrator:latest
+    links: [consul]
+    mem_limit: 50m
+    networks: [mysgs]
+    restart: unless-stopped
+    volumes: ['/var/run/docker.sock:/tmp/docker.sock']
+  nginx:
+    environment: ['CONSUL=consul:8500', PUBLIC_IP=192.168.46.156, SERVICE_NAME=sgs-nginx,
+      SERVICE_80_NAME=sgs-nginx, SERVICE_81_NAME=sgs-nginx, SERVICE_82_NAME=sgs-nginx,
+      SERVICE_83_NAME=sgs-nginx, SERVICE_84_NAME=sgs-nginx, SGS_SERVICE=sgs-sgs-service-name-sgs,
+      MULE_SERVICE=sgs-mule-service-name-mule, ISERVER_SERVICE=sgs-iserver-service-name-iserver,
+      MAP_SERVICE=sgs-dfc-service-name-dfc-map, GEOCODING_SERVICE=sgs-dfc-service-name-dfc-geocoding]
+    image: supermap/nginx:1.10.0
+    links: [consul]
+    mem_limit: 50m
+    networks: [mysgs]
+    ports: ['8080:80', '8081:81', '8090:82', '8180:83', '8280:84']
+    restart: unless-stopped
+version: '2'
+volumes: {mongo-sgs-data: null, mongo-map-data: null, mongo-geocoding-data: null,
+  oracle-data: null, iserver-log-data: null, sgs-log-data: null, idesktop-iserver-data: null}

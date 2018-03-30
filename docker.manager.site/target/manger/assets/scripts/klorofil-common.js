@@ -61,7 +61,7 @@ $(document).ready(function() {
 	if( $('.sidebar-scroll').length > 0 ) {
 		$('.sidebar-scroll').slimScroll({
 			height: '95%',
-			wheelStep: 2,
+			wheelStep: 2
 		});
 	}
 
@@ -115,14 +115,14 @@ $(document).ready(function() {
 	if( $('.panel-scrolling').length > 0) {
 		$('.panel-scrolling .panel-body').slimScroll({
 			height: '430px',
-			wheelStep: 2,
+			wheelStep: 2
 		});
 	}
 
 	if( $('#panel-scrolling-demo').length > 0) {
 		$('#panel-scrolling-demo .panel-body').slimScroll({
 			height: '175px',
-			wheelStep: 2,
+			wheelStep: 2
 		});
 	}
 
@@ -146,7 +146,7 @@ $(document).ready(function() {
 	if($('#toastr-demo').length > 0) {
 		toastr.options.timeOut = "false";
 		toastr.options.closeButton = true;
-		toastr['info']('Hi there, this is notification demo with HTML support. So, you can add HTML elements like <a href="#">this link</a>');
+		//toastr['info']('Hi there, this is notification demo with HTML support. So, you can add HTML elements like <a href="#">this link</a>');
 
 		$('.btn-toastr').on('click', function() {
 			$context = $(this).data('context');
@@ -184,7 +184,7 @@ $(document).ready(function() {
 
 			toastr.options = {
 				"timeOut": "10000",
-				"onclick": function() { alert('onclick callback'); },
+				"onclick": function() { alert('onclick callback'); }
 			}
 
 			toastr['info']($message);

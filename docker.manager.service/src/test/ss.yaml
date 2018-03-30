@@ -1,0 +1,26 @@
+networks:
+  mysgs:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: 192.168.46.195
+services:
+  mongodb-map:
+    environment:
+    - SERVICE_27017_NAME=sgs-mongodb-map
+    image: supermap/sgs-mongodb:3.0
+    mem_limit: 256m
+    networks:
+    - mysgs
+    ports:
+    - 27019:27017
+  map:
+    environment:
+    - SERVICE_8080_NAME=sgs-dfc-service-name-dfc-map
+    image: supermap/sgs-dfc:9.0
+    links:
+    - mongodb-map:mongodbip
+    networks:
+    - mysgs
+    ports:
+    - 8080:8080
+version: '2'

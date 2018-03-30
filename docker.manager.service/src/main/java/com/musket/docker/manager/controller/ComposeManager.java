@@ -1,5 +1,6 @@
 package com.musket.docker.manager.controller;
 
+import com.musket.docker.manager.util.YamlHelper;
 import com.musket.docker.manager.util.composeutil.RequestModel;
 import com.musket.docker.manager.util.composeutil.YamlUtil;
 import com.musket.docker.manager.util.httpclientutil.common.HttpHeader;
@@ -33,6 +34,7 @@ import java.util.Map;
 @RequestMapping("/compose/model")
 public class ComposeManager {
     private String composeUrl;
+    private YamlHelper yamlHelper;
     public static final String CREATURL = "api/v1/create-project";
     public static final String LISTURL = "api/v1/projects";
     public static final String DELETE = "api/v1/remove-project";
@@ -42,6 +44,10 @@ public class ComposeManager {
 
     public void setComposeUrl(String composeUrl) {
         this.composeUrl = composeUrl;
+    }
+
+    public void setYamlHelper(YamlHelper yamlHelper) {
+        this.yamlHelper = yamlHelper;
     }
 
     /**
@@ -232,4 +238,12 @@ public class ComposeManager {
         return result;
 
     }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public Object test(HttpServletRequest request,
+                              HttpServletResponse response, String name) {
+        yamlHelper.write();
+        return  "";
+    }
+
 }

@@ -8,8 +8,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!-- VENDOR CSS -->
 	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/ladda-themeless.min.css">
 	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="assets/vendor/toastr/toastr.min.css">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -90,7 +92,7 @@
 				<nav>
 					<ul class="nav">
 						<li><a href="index.html" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="elements.html" class="active"><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
+						<li><a href="container.html" class="active"><i class="lnr lnr-code"></i> <span>Container</span></a></li>
 						<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
 						<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
 						<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
@@ -117,8 +119,107 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">Elements</h3>
-					<div class="row">
+					<h3 class="page-title">Manager</h3>
+
+                    <div class="custom-tabs-line tabs-line-bottom left-aligned">
+                    <ul class="nav" role="tablist">
+                        <li class="active"><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Templates<span class="badge" id="templatesbadge"></span></a></li>
+                        <li><a  href="#tab-bottom-left2" role="tab" data-toggle="tab">Projects <span class="badge" id = "projectsbadge">0</span></a></li>
+                    </ul>
+                    <!--<button type="button" class="btn btn-primary" id = "btn-create-project">Create<span class="lnr lnr-pencil"></span></button>-->
+
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="yamltext">
+                                        Create a project template  :YAML
+                                    </h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <span>Template name：</span> <h4><input id="template_name"  type="text"/></h4>
+                                    <textarea style="height: 450px " class="form-control" placeholder="textarea" id = "template_yaml"rows="4"></textarea>
+                                </div>
+                                <div class="modal-footer" id = "creat_yaml_div">
+                                    <button type="button" class="btn btn-default" id="close_creat_yaml_div" data-dismiss="modal">Close
+                                    </button>
+                                    <button type="button" class="btn btn-primary" id="creatfromyaml">
+                                        Commit
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+
+                    <div class="modal fade" id="myModal_Prompt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Are you sure you want to delete?
+                                    </h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="delete_false">Close
+                                    </button>
+                                    <button type="button" class="btn btn-primary" id="delete_true">
+                                        Commit
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+
+                    <div class="tab-content">
+					<div class=" tab-pane fade in active" id ="tab-bottom-left1">
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">CreateTemplate<span class="lnr lnr-pencil"></span></button>
+                        <div class="panel-body" id ="template-list">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Explain</th>
+                                    <th>State</th>
+                                    <th>Operation</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                        <div class="tab-pane fade" id="tab-bottom-left2">
+                            <div class="table-responsive" id="project-list">
+                            <table class="table project-table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>URL</th>
+                                    <th>State</th>
+                                    <th>Operation</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                       </div>
+                    </div>
+                    </div>
+                    <!-- END BASIC TABLE -->
+
+
+
 						<div class="col-md-6">
 							<!-- BUTTONS -->
 							<div class="panel">
@@ -392,6 +493,9 @@
 					</div>
 				</div>
 			</div>
+        <div id="toastr-demo" style="width: 0px;height:0px"    class="panel">
+            <button type="button" style="width: 0px;height:0px;visibility:hidden" class="btn btn-success btn-toastr" id="btn-success" data-context="success" data-message="This is success info" data-position="top-right">Success Info</button>
+        </div>
 			<!-- END MAIN CONTENT -->
 		</div>
 		<!-- END MAIN -->
@@ -407,7 +511,11 @@
 	<script src="assets/vendor/jquery/jquery.min.js"></script>
 	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/scripts/klorofil-common.js"></script>
+    <script src="assets/vendor/toastr/toastr.min.js"></script>
+    <script src="static/dashboard/js/container.js"></script>
+    <script src="assets/scripts/klorofil-common.js"></script>
+    <script src="dist/spin.min.js"></script>
+    <script src="dist/ladda.min.js"></script>
 </body>
 
 </html>

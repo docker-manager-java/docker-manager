@@ -51,6 +51,7 @@
 
     <bean id="ComposeManager" class="com.musket.docker.manager.controller.ComposeManager">
         <property name="composeUrl" value="${DcokerComposeUi.url}" />
+        <property name="yamlHelper" ref="YamlHelper" />
     </bean>
 
 
