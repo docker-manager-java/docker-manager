@@ -20,6 +20,7 @@
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="dist/css/bootstrapValidator.css"/>
 </head>
 
 <body>
@@ -118,30 +119,189 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title"><span id = "container-a-name"></span></h3>
-                    <div class="custom-tabs-line tabs-line-bottom left-aligned">
-
-                        <!-- BASIC TABLE -->
-                        <div class="panel">
-                            <div class="panel-body" id="containerlist">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>URI</th>
-                                        <th>State</th>
-                                        <th>Operation</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
+					<h3 class="page-title"><div id="page-inner">
+                        <div class="row" style="padding:10px;background: #bebebe">
+                            <div class="col-md-12">
+                                <div class="input-group" style="width: 60%; float: left;font-size: 20px;font-weight: bolder;">
+                                   CreatModal
+                                </div>
                             </div>
                         </div>
-                        <!-- END BASIC TABLE -->
-						</div>
+                        <div class="row" style="margin-top:30px">
+                            <ul id="myTab" role="tablist">
+                                <li id="step1Li" class="active blue">
+                                    <a href="#step1"  onclick="eventFun.setStep(1)" role="tab" data-toggle="tab">
+                                        1.creat name
+                                    </a>
+                                </li>
+                                <li id="step2Li"  class="gray">
+                                    <img id="step2Img" src="assets/img/creat2.png"/>
+                                    <a href="#step2"  onclick="eventFun.setStep(2)"  role="tab" data-toggle="tab">
+                                        2.add app node
+                                    </a>
+                                </li>
+                                <li id="step3Li"  class="gray">
+                                    <img id="step3Img" src="assets/img/creat3.png"/>
+                                    <a href="#step3"  onclick="eventFun.setStep(3)"  role="tab" data-toggle="tab">
+                                        3.crete relationship
+                                    </a>
+                                </li>
+                                <li id="step4Li"  class="gray">
+                                    <img id="step4Img" src="assets/img/creat3.png"/>
+                                    <a href="#step4"  onclick="eventFun.setStep(4)"  role="tab" data-toggle="tab">
+                                        4.end
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div id="step1" class="tab-pane fade active in">
+                                    <div style="margin: auto; text-align: center">
+                                        <table style="margin: auto; text-align: center">
+                                            <tbody>
+                                            <tr>
+                                                <td>Name:</td>
+                                                <td><input type="text" placeholder="project name"></td>
+                                            </tr>
+                                            </tbody>
+                                            </table><br><br>
+                                        <a href="#step2"  onclick="eventFun.setStep(2)"  role="tab" data-toggle="tab">  <button class="btn btn-primary btn-lg" >next<span class="lnr lnr-pencil"></span></button>   </a>
+                                     </div>
+                                </div>
+                                <div id="step2" class="tab-pane fade">
+                                    <!-- BASIC TABLE -->
+                                    <div class="panel">
+                                          App Table   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">+</button>
+                                        <div class="panel-body" >
+                                            <table class="table" id="app_add_table">
+                                                <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Name</th>
+                                                    <th>Image</th>
+                                                    <th>Hostname</th>
+                                                    <th>Ports</th>
+                                                    <th>Links</th>
+                                                    <th>Volumes</th>
+                                                    <th>Mem_limit</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- END BASIC TABLE -->
+                                </div>
+                                <div id="step3" class="tab-pane fade">
+                                    3
+                                </div>
+                                <div id="step4" class="tab-pane fade">
+                                    4
+                                </div>
+                            </div>
+                        </div>
+                    </div><span id = "container-a-name"></span>
+                    <div class="custom-tabs-line tabs-line-bottom left-aligned">
+						</div></h3>
 					</div>
+
+                <!--yaml-->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title" id="yamltext">
+                                    Create a project template  :YAML
+                                </h4>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <!-- form: -->
+                                <section>
+                                        <form id="defaultForm">
+
+                                            <div class="form-group">
+                                                <label  class="col-sm-2 control-label">AppName</label>
+                                                <div >
+                                                    <input type="text" class="form-control" name="appname" placeholder="appname" style="width: 300px">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label  class="col-sm-2 control-label">Images</label>
+                                                <div >
+                                                    <input type="text" class="form-control" name="images" placeholder="" style="width: 300px">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label  class="col-sm-2 control-label">HostName</label>
+                                                <div >
+                                                    <input type="text" class="form-control" name="hostname" placeholder="hostname" style="width: 300px">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label  class="col-sm-2 control-label">Ports</label>
+                                                <div >
+                                                    <input type="text" class="form-control" name="ports" placeholder="ports" style="width: 300px">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label  class="col-sm-2 control-label">Links</label>
+                                                <div >
+                                                    <input type="text" class="form-control" name="links" placeholder="links" style="width: 300px">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label  class="col-sm-2 control-label">Volumes</label>
+                                                <div >
+                                                    <input type="text" class="form-control" name="volumes" placeholder="volumes" style="width: 300px">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label  class="col-sm-2 control-label">Mem_limit</label>
+                                                <div >
+                                                    <input type="text" class="form-control" name="mem_limit" placeholder="mem_limit" style="width: 300px">
+                                                </div>
+                                            </div>
+
+
+
+                                           <!-- <div class="form-group">
+                                                <div class="col-lg-9 col-lg-offset-3">
+                                                    <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Sign up</button>
+                                                    <button type="submit" class="btn btn-primary" name="signup2" value="Sign up 2">Sign up 2</button>
+                                                    <button type="button" class="btn btn-info" id="validateBtn">Manual validate</button>
+                                                    <button type="button" class="btn btn-info" id="resetBtn">Reset form</button>
+                                                </div>
+                                            </div>-->
+                                        </form>
+
+                                </section>
+                                <!-- :form -->
+
+
+
+
+                            </div>
+                            <div class="modal-footer" id = "creat_yaml_div">
+                                <button type="button" class="btn btn-default" id="close_creat_yaml_div" data-dismiss="modal">Close
+                                </button>
+                                <button type="button" class="btn btn-primary" id="creatfromyaml">
+                                    Commit
+                                </button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal --><!--yaml-->
+
 				</div>
 			</div>
         <div id="toastr-demo" style="width: 0px;height:0px"    class="panel">
@@ -163,8 +323,205 @@
 	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <script src="assets/vendor/toastr/toastr.min.js"></script>
-    <script src="static/dashboard/js/container-a.js"></script>
+    <script src="static/dashboard/js/container-creat.js"></script>
     <script src="assets/scripts/klorofil-common.js"></script>
-</body>
+    <script type="text/javascript" src="dist/js/bootstrapValidator.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
 
+            $('#defaultForm').bootstrapValidator({
+//        live: 'disabled',
+                message: 'This value is not valid',
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    appname: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The first name is required and cannot be empty'
+                            }
+                        }
+                    },
+                    images: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The last name is required and cannot be empty'
+                            },
+                            regexp: {
+                                regexp: /[^\u4E00-\u9FA5]/,
+                                message: 'Inability to enter Chinese'
+                            }
+                        }
+                    },
+                    username: {
+                        message: 'The username is not valid',
+                        validators: {
+                            notEmpty: {
+                                message: 'The username is required and cannot be empty'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 30,
+                                message: 'The username must be more than 6 and less than 30 characters long'
+                            },
+                            regexp: {
+                                regexp: /[^\u4E00-\u9FA5]/,
+                                message: 'The username can only consist of alphabetical, number, dot and underscore'
+                            },
+
+                            different: {
+                                field: 'password',
+                                message: 'The username and password cannot be the same as each other'
+                            }
+                        }
+                    },
+                    email: {
+                        validators: {
+                            emailAddress: {
+                                message: 'The input is not a valid email address'
+                            }
+                        }
+                    },
+                    password: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The password is required and cannot be empty'
+                            },
+                            identical: {
+                                field: 'confirmPassword',
+                                message: 'The password and its confirm are not the same'
+                            },
+                            different: {
+                                field: 'username',
+                                message: 'The password cannot be the same as username'
+                            }
+                        }
+                    },
+                    confirmPassword: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The confirm password is required and cannot be empty'
+                            },
+                            identical: {
+                                field: 'password',
+                                message: 'The password and its confirm are not the same'
+                            },
+                            different: {
+                                field: 'username',
+                                message: 'The password cannot be the same as username'
+                            }
+                        }
+                    },
+                    birthday: {
+                        validators: {
+                            date: {
+                                format: 'YYYY/MM/DD',
+                                message: 'The birthday is not valid'
+                            }
+                        }
+                    },
+                    gender: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The gender is required'
+                            }
+                        }
+                    },
+                    'languages[]': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Please specify at least one language you can speak'
+                            }
+                        }
+                    },
+                    'programs[]': {
+                        validators: {
+                            choice: {
+                                min: 2,
+                                max: 4,
+                                message: 'Please choose 2 - 4 programming languages you are good at'
+                            }
+                        }
+                    },
+                    captcha: {
+                        validators: {
+                            callback: {
+                                message: 'Wrong answer',
+                                callback: function(value, validator) {
+                                    var items = $('#captchaOperation').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
+                                    return value == sum;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Validate the form manually
+            $('#validateBtn').click(function() {
+                $('#defaultForm').bootstrapValidator('validate');
+            });
+
+            $('#resetBtn').click(function() {
+                $('#defaultForm').data('bootstrapValidator').resetForm(true);
+            });
+        });
+    </script>
+</body>
+<style>
+
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        margin: 0;
+        padding: 0;
+    }
+
+    #myTab li{
+        width:25%;
+        float:left;
+        height:40px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #myTab li img{
+        float:left;
+        height: 40px;
+    }
+
+    #myTab li a{
+        color:white;
+        text-align: center;
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+    }
+
+    .blue{
+        background:#0f9af2;
+    }
+    .gray{
+        background: #dfdfdf;
+    }
+    .tabPaneUl{
+        width: 700px;
+        margin: 0 auto;
+        list-style: none;
+    }
+
+    .tabPaneUl li{
+        height: 40px;
+        line-height: 40px;
+    }
+    .tab-pane{
+        margin-top: 50px;
+    }
+</style>
 </html>
