@@ -191,6 +191,8 @@
                                         </div>
                                     </div>
                                     <!-- END BASIC TABLE -->
+                                    <a href="#step3"  onclick="eventFun.setStep(3)"  role="tab" data-toggle="tab" style=" position: absolute;
+    right: 10px;">  <button class="btn btn-primary btn-lg" >next</button>   </a>
                                 </div>
                                 <div id="step3" class="tab-pane fade">
                                     3
@@ -227,53 +229,51 @@
                                             <div class="form-group">
                                                 <label  class="col-sm-2 control-label">AppName</label>
                                                 <div >
-                                                    <input type="text" class="form-control" name="appname" placeholder="appname" style="width: 300px">
+                                                    <input type="text" class="form-control" name="appname" id="appname" placeholder="oracle" style="width: 300px">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label  class="col-sm-2 control-label">Images</label>
                                                 <div >
-                                                    <input type="text" class="form-control" name="images" placeholder="" style="width: 300px">
+                                                    <input type="text" class="form-control" name="images"id="images" placeholder="" style="width: 300px">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label  class="col-sm-2 control-label">HostName</label>
                                                 <div >
-                                                    <input type="text" class="form-control" name="hostname" placeholder="hostname" style="width: 300px">
+                                                    <input type="text" class="form-control" name="hostname" id="hostname" placeholder="hostname" style="width: 300px">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label  class="col-sm-2 control-label">Ports</label>
                                                 <div >
-                                                    <input type="text" class="form-control" name="ports" placeholder="ports" style="width: 300px">
+                                                    <input type="text" class="form-control" name="ports" id="ports" placeholder="8080:8080,1521:1521" style="width: 300px">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label  class="col-sm-2 control-label">Links</label>
                                                 <div >
-                                                    <input type="text" class="form-control" name="links" placeholder="links" style="width: 300px">
+                                                    <input type="text" class="form-control" name="links" id="links" placeholder="oracle:oracleip,redis:redisip" style="width: 300px">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label  class="col-sm-2 control-label">Volumes</label>
                                                 <div >
-                                                    <input type="text" class="form-control" name="volumes" placeholder="volumes" style="width: 300px">
+                                                    <input type="text" class="form-control" name="volumes" id="volumes" placeholder="volumes" style="width: 300px">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label  class="col-sm-2 control-label">Mem_limit</label>
                                                 <div >
-                                                    <input type="text" class="form-control" name="mem_limit" placeholder="mem_limit" style="width: 300px">
+                                                    <input type="text" class="form-control" name="mem_limit" id="mem_limit"  placeholder="256m" style="width: 300px">
                                                 </div>
                                             </div>
-
-
 
                                            <!-- <div class="form-group">
                                                 <div class="col-lg-9 col-lg-offset-3">
@@ -288,14 +288,11 @@
                                 </section>
                                 <!-- :form -->
 
-
-
-
                             </div>
                             <div class="modal-footer" id = "creat_yaml_div">
-                                <button type="button" class="btn btn-default" id="close_creat_yaml_div" data-dismiss="modal">Close
+                                <button type="button" class="btn btn-default" id="close_creat" data-dismiss="modal">Close
                                 </button>
-                                <button type="button" class="btn btn-primary" id="creatfromyaml">
+                                <button type="button" class="btn btn-primary" id="creat">
                                     Commit
                                 </button>
                             </div>

@@ -23,17 +23,27 @@ var eventFun={
     }
 };
 
-$("#app_add").click(function(){
+$("#creat").click(function(){
+    var appname = $("#appname").val();
+    var imanges = $("#images").val();
+    var hostname = $("#hostname").val();
+    var ports = $("#ports").val();
+    var links = $("#links").val();
+    var volumes = $("#volumes").val();
+    var mem_limit = $("#mem_limit").val();
 
-   /* var trHTML = "<tr>" +
+    var trHTML = "<tr>" +
         "<td>" + num++ + "</td>" +
-        "<td> <input type='text' > </td>" +
-        "<td> <input type='text' placeholder='text field'> </td>" +
-        "<td> <input type='text' placeholder='text field'> </td>" +
-        "<td> <input type='text' placeholder='text field'> </td>" +
-        "<td> <input type='text' placeholder='text field'> </td>" +
+        "<td>"+ appname +"</td>" +
+        "<td>"+ imanges +"</td>" +
+        "<td>"+ hostname +"</td>" +
+        "<td>"+ ports +"</td>" +
+        "<td>"+ links +"</td>" +
+        "<td>"+ volumes +"</td>" +
+        "<td>"+ mem_limit +"</td>" +
         "</tr>";
-    $("#app_add_table").append(trHTML);*/
+    $("#close_creat").click();
+    $("#app_add_table").append(trHTML);
 
 
 })
