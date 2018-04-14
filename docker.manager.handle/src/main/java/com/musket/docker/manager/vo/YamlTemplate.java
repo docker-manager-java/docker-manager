@@ -9,7 +9,7 @@ public class YamlTemplate {
 
     private NetWorksiInfo networks;
     private ServicesInfo services;
-    private VersionInfo version;
+    private String version;
     private VolumeInfo volumes;
 
     public NetWorksiInfo getNetworks() {
@@ -28,11 +28,11 @@ public class YamlTemplate {
         this.services = services;
     }
 
-    public VersionInfo getVersion() {
+    public String getVersion() {
         return version;
     }
 
-    public void setVersion(VersionInfo version) {
+    public void setVersion(String version) {
         this.version = version;
     }
 
