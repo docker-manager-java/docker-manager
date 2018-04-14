@@ -20,14 +20,12 @@
         <property name="yamlTemplate" ref="YamlTemplate" />
         <property name="netWorksiInfo" ref="NetWorksiInfo" />
         <property name="servicesInfo" ref="ServicesInfo" />
-        <property name="versionInfo" ref="VersionInfo" />
         <property name="volumeInfo" ref="VolumeInfo" />
     </bean>
 
     <bean id="YamlTemplate" class="com.musket.docker.manager.vo.YamlTemplate">
         <property name="networks" ref="NetWorksiInfo" />
         <property name="services" ref="ServicesInfo" />
-        <property name="version" ref="VersionInfo" />
         <property name="volumes" ref="VolumeInfo" />
 
     </bean>
@@ -36,9 +34,6 @@
 
     </bean>
 
-    <bean id="VersionInfo" class="com.musket.docker.manager.vo.VersionInfo">
-
-    </bean>
 
     <bean id="VolumeInfo" class="com.musket.docker.manager.vo.VolumeInfo">
 
