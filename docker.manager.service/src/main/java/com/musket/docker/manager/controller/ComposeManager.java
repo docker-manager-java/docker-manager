@@ -24,6 +24,8 @@ import org.apache.http.client.HttpClient;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -239,11 +241,22 @@ public class ComposeManager {
 
     }
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public Object test(HttpServletRequest request,
-                              HttpServletResponse response, String name) {
-        yamlHelper.write();
-        return  "";
+    @RequestMapping(value = "/creat", method = RequestMethod.POST)
+    public Object creat(HttpServletRequest request,
+                              HttpServletResponse response) {
+        ResultInfo result = new ResultInfo();
+        Map<String,Object> map = request.getParameterMap();
+        String[] strings =(String[]) map.get("name");
+        String name = strings[0];
+        String yaml = yamlHelper.writeYaml(map);
+        String url = composeUrl + CREATURL;
+        String yml = "{\"name\":\"" + name + "\",\"yml\":" + YamlUtil.yamlFormart(yaml) + ",\"env\":\"\"}";
+        try {
+            result.setData(RequestModel.dosent("POST", url, yml));
+        } catch (HttpProcessException e) {
+            e.printStackTrace();
+        }
+        return  result;
     }
 
 }
