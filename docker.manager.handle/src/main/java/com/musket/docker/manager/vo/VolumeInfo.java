@@ -8,13 +8,4 @@ import java.util.Map;
  */
 public class VolumeInfo {
 
-    private List<Map<String,String>> volumemap;
-
-    public List<Map<String, String>> getVolumemap() {
-        return volumemap;
-    }
-
-    public void setVolumemap(List<Map<String, String>> volumemap) {
-        this.volumemap = volumemap;
-    }
 }
