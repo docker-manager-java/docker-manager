@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.google.gson.Gson;
 import com.musket.docker.manager.vo.*;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.yaml.snakeyaml.Yaml;
 
@@ -61,93 +62,65 @@ public class YamlHelper {
         this.volumeInfo = volumeInfo;
     }
 
-    public  void write() {
-
-
+    public String writeYaml( Map<String,Object>  parms) {
+        String result = "";
         JSONObject jsonObj = new JSONObject();
-        yamlTemplate.setVersion("2");
+        String[] strings = (String[]) parms.get("ver");
+        String ver = strings[0];
+        strings =(String[]) parms.get("ip");
+        String ip = strings[0];
+        strings =(String[]) parms.get("name");
+        String name = strings[0];
+        strings =(String[]) parms.get("data");
+        String data = strings[0];
+        yamlTemplate.setVersion(ver);
+        //获取模板信息
         jsonObj = JSONObject.fromObject(yamlTemplate);
         Map<String,Object> networks = new HashMap<String, Object>();
         Map<String,Object> networksdriveroopts = new HashMap<String, Object>();
-        networksdriveroopts.put("com.docker.network.bridge.host_binding_ipv4","192.168.46.195");
-
+        //设置ip,网络
+        networksdriveroopts.put("com.docker.network.bridge.host_binding_ipv4",ip);
         networks.put("driver","bridge");
         networks.put("driver_opts",networksdriveroopts);
-        jsonObj.getJSONObject("networks").put("sgs",networks);
-
-        ServiceMould serviceMould =new ServiceMould();
-        List<String> environmentlist = new ArrayList<String>();
-        environmentlist.add("SERVICE_27017_NAME=sgs-mongodb-map");
-        serviceMould.setEnvironment(environmentlist);
-        serviceMould.setImage("supermap/sgs-mongodb:3.0");
-        List<String> pots = new ArrayList<String>();
-        pots.add("27019:27017");
-        serviceMould.setPorts(pots);
-        List<String> network = new ArrayList<String>();
-        network.add("sgs");
-        serviceMould.setNetworks(network);
-
-        jsonObj.getJSONObject("services").put("mongodb-map", serviceMould);
-
-        ServiceMould serviceMould1 =new ServiceMould();
-        List<String> environmentlist1 = new ArrayList<String>();
-        environmentlist1.add("SERVICE_8080_NAME=sgs-dfc-service-name-dfc-map");
-        serviceMould1.setEnvironment(environmentlist1);
-        serviceMould1.setImage("supermap/sgs-dfc:9.0");
-        List<String> pots1 = new ArrayList<String>();
-        pots.add("8080:8080");
-        serviceMould1.setPorts(pots);
-        serviceMould1.setNetworks(network);
-        List<String> link = new ArrayList<String>();
-        link.add("mongodb-map:mongodbip");
-        serviceMould1.setLinks(link);
-        jsonObj.getJSONObject("services").put("map", serviceMould1);
-       // map_networks.put("driver_opts","com.docker.network.bridge.host_binding_ipv4: 192.168.46.195");
-
-
-
-
-        jsonObj.toString();
+        jsonObj.getJSONObject("networks").put(name,networks);
+        //获取services数据
+        JSONObject jsonObject = JSONObject.fromObject(data);
+        JSONArray jsonArray  = (JSONArray) jsonObject.get("data");
+        //遍历services数据
+        for (int i  = 0;i<jsonArray.size();i++ ){
+            JSONObject jsonObject1 = (JSONObject) jsonArray.get(i);
+            ServiceMould serviceMould =new ServiceMould();
+            List<String> environmentlist = new ArrayList<String>();
+            environmentlist.add("SERVICE_27017_NAME=sgs-mongodb-map");
+            serviceMould.setEnvironment(environmentlist);
+            serviceMould.setImage((String) jsonObject1.get("Image"));
+            List<String> pots = new ArrayList<String>();
+            pots.add((String) jsonObject1.get("Ports"));
+            serviceMould.setPorts(pots);
+            List<String> network = new ArrayList<String>();
+            network.add(name);
+            serviceMould.setNetworks(network);
+            jsonObj.getJSONObject("services").put(jsonObject1.get("Name"),serviceMould);
+        }
         try {
-            createYaml(jsonObj.toString());
+            result = createYaml(jsonObj.toString());
+            return result;
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-       /* ServiceMould serviceMould =new ServiceMould();
-        List<String> environmentlist = new ArrayList<String>();
-        environmentlist.add("SERVICE_27017_NAME=sgs-mongodb-map");
-        serviceMould.setEnvironment(environmentlist);
-        serviceMould.setImage("supermap/sgs-mongodb:3.0");
-        List<String> pots = new ArrayList<String>();
-        pots.add("27019:27017");
-        serviceMould.setPorts(pots);
-        List<String> network = new ArrayList<String>();
-        network.add("sgs");
-        serviceMould.setNetworks(network);
-
-        jsonObj.getJSONObject("services").put("mongodb-map", serviceMould);
-
-        ServiceMould serviceMould1 =new ServiceMould();
-        List<String> environmentlist1 = new ArrayList<String>();
-        environmentlist1.add("SERVICE_8080_NAME=sgs-dfc-service-name-dfc-map");
-        serviceMould1.setEnvironment(environmentlist1);
-        serviceMould1.setImage("supermap/sgs-dfc:9.0");
-        List<String> pots1 = new ArrayList<String>();
-        pots.add("8080:8080");
-        serviceMould1.setPorts(pots);
-        serviceMould1.setNetworks(network);
-        List<String> link = new ArrayList<String>();
-        link.add(" mongodb-map:mongodbip");
-        serviceMould1.setLinks(link);
-        jsonObj.getJSONObject("services").put("map", serviceMould1);*/
+        return result;
     }
 
 
-
-    public static void createYaml(String jsonString) throws JsonProcessingException, IOException {
+    /**
+     * 获取yaml文件
+     * @param jsonString
+     * @return
+     * @throws JsonProcessingException
+     * @throws IOException
+     */
+    public static String createYaml(String jsonString) throws JsonProcessingException, IOException {
+        String result = "";
         // parse JSON
         JsonNode jsonNodeTree = new ObjectMapper().readTree(jsonString);
         // save it as YAML
@@ -155,8 +128,12 @@ public class YamlHelper {
 
         Yaml yaml = new Yaml();
         Map<String,Object> map = (Map<String, Object>) yaml.load(jsonAsYaml);
-
-        createYamlFile("C:\\Users\\Administrator\\Desktop\\s.yaml", map);
+        result  = yaml.dumpAsMap(map);
+        if (!"".equals(result)){
+            return result;
+        }
+        return result;
+        //createYamlFile("C:\\Users\\Administrator\\Desktop\\s.yaml", map);
     }
 
     /**
@@ -195,6 +172,18 @@ public class YamlHelper {
         return gs.toJson(loaded);
     }
 
+    /**
+     //   * 打印生成yaml格式的string
+     //   */
+  public static void testDump() {
+      Map<String, Object> data = new HashMap<String, Object>();
+      data.put("name", "Silenthand Olleander");
+      data.put("race", "Human");
+      data.put("traits", new String[] { "ONE_HAND", "ONE_EYE" });
+      Yaml yaml = new Yaml();
+      String output = yaml.dump(data);
+      System.out.println(output);
+ }
 }
 
 
