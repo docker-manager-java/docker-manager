@@ -156,14 +156,27 @@
                             <div id="myTabContent" class="tab-content">
                                 <div id="step1" class="tab-pane fade active in">
                                     <div style="margin: auto; text-align: center">
-                                        <table style="margin: auto; text-align: center">
-                                            <tbody>
-                                            <tr>
-                                                <td>Name:</td>
-                                                <td><input type="text" placeholder="project name"></td>
-                                            </tr>
-                                            </tbody>
-                                            </table><br><br>
+                                        <form class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Name</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="creat_name" placeholder="name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label  class="col-sm-2 control-label">Ip addr</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="creat_ip" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Version</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="creat_ver" placeholder="">
+                                                </div>
+                                            </div>
+                                        </form>
+
                                         <a href="#step2"  onclick="eventFun.setStep(2)"  role="tab" data-toggle="tab">  <button class="btn btn-primary btn-lg" >next<span class="lnr lnr-pencil"></span></button>   </a>
                                      </div>
                                 </div>
@@ -191,8 +204,10 @@
                                         </div>
                                     </div>
                                     <!-- END BASIC TABLE -->
-                                    <a href="#step3"  onclick="eventFun.setStep(3)"  role="tab" data-toggle="tab" style=" position: absolute;
-    right: 10px;">  <button class="btn btn-primary btn-lg" >next</button>   </a>
+                                   <!-- <a href="#step3"  onclick="eventFun.setStep(3)"  role="tab" data-toggle="tab" style=" position: absolute;
+    right: 10px;">  <button class="btn btn-primary btn-lg" >next</button>   </a>-->
+                                    <button class="btn btn-primary btn-lg" id="creat_submit">next</button>
+
                                 </div>
                                 <div id="step3" class="tab-pane fade">
                                     3
