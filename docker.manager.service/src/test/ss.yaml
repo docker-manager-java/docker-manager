@@ -9,6 +9,7 @@ services:
     - SERVICE_27017_NAME=sgs-mongodb-map
     image: supermap/sgs-mongodb:3.0
     mem_limit: 256m
+    
     networks:
     - mysgs
     ports:
